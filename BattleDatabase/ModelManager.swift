@@ -27,14 +27,14 @@ class ModelManager: NSObject
     func addNinjaData(ninjaInfo: NinjaInfo) -> Bool
     {
         sharedInstance.database!.open()
-        let isInserted = sharedInstance.database!.executeUpdate("INSERT INTO ninja_info (Name, Marks) VALUES (?, ?)", withArgumentsInArray: [ninjaInfo.Name, ninjaInfo.Marks])
+        let isInserted = sharedInstance.database!.executeUpdate("INSERT INTO ninja_info (Name, RegistryNum, Rank, Strength) VALUES (?, ?, ?, ?)", withArgumentsInArray: [ninjaInfo.Name, ninjaInfo.RegisNum, ninjaInfo.Rank, ninjaInfo.Strength])
         sharedInstance.database!.close()
         return isInserted
     }
     
     func updateNinjaData(ninjaInfo: NinjaInfo) -> Bool {
         sharedInstance.database!.open()
-        let isUpdated = sharedInstance.database!.executeUpdate("UPDATE ninja_info SET Name=?, Marks=? WHERE RollNo=?", withArgumentsInArray: [ninjaInfo.Name, ninjaInfo.Marks, ninjaInfo.RollNo])
+        let isUpdated = sharedInstance.database!.executeUpdate("UPDATE ninja_info SET Name=?, RegistryNum=?, Rank=?, Strength=? WHERE RollNo=?", withArgumentsInArray: [ninjaInfo.Name, ninjaInfo.RegisNum, ninjaInfo.Rank, ninjaInfo.Strength, ninjaInfo.RollNo])
         sharedInstance.database!.close()
         return isUpdated
     }
@@ -55,7 +55,9 @@ class ModelManager: NSObject
                 let ninjaInfo : NinjaInfo = NinjaInfo()
                 ninjaInfo.RollNo = resultSet.stringForColumn("RollNo")
                 ninjaInfo.Name = resultSet.stringForColumn("Name")
-                ninjaInfo.Marks = resultSet.stringForColumn("Marks")
+                ninjaInfo.RegisNum = resultSet.stringForColumn("RegistryNum")
+                ninjaInfo.Rank = resultSet.stringForColumn("Rank")
+                ninjaInfo.Strength = resultSet.stringForColumn("Strength")
                 marrNinjaInfo.addObject(ninjaInfo)
             }
         }

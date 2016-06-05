@@ -46,7 +46,7 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     {
         let cell:NinjaCell = tableView.dequeueReusableCellWithIdentifier("cell") as! NinjaCell
         let ninja:NinjaInfo = marrNinjaData.objectAtIndex(indexPath.row) as! NinjaInfo
-        cell.lblContent.text = "Name : \(ninja.Name)  \n  Marks : \(ninja.Marks)"
+        cell.lblContent.text = "Name : \(ninja.Name)"
         cell.btnDelete.tag = indexPath.row
         cell.btnEdit.tag = indexPath.row
         return cell

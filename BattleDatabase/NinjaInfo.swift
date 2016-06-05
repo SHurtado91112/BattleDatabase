@@ -12,5 +12,7 @@ class NinjaInfo: NSObject
 {
     var RollNo: String = String();
     var Name: String = String();
-    var Marks: String = String();
+    var RegisNum: String = String();
+    var Rank: String = String();
+    var Strength: String = String();
 }
