@@ -8,20 +8,44 @@
 
 /* Begin PBXBuildFile section */
 		28D7DC8A1D0334F9007C50C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7DC891D0334F9007C50C6 /* AppDelegate.swift */; };
-		28D7DC8C1D0334F9007C50C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7DC8B1D0334F9007C50C6 /* ViewController.swift */; };
 		28D7DC8F1D0334F9007C50C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D7DC8D1D0334F9007C50C6 /* Main.storyboard */; };
 		28D7DC911D0334F9007C50C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28D7DC901D0334F9007C50C6 /* Assets.xcassets */; };
 		28D7DC941D0334F9007C50C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D7DC921D0334F9007C50C6 /* LaunchScreen.storyboard */; };
+		28D7DCA21D033F07007C50C6 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7DCA11D033F07007C50C6 /* HomeScreenViewController.swift */; };
+		28DB960A1D034BDA008EB6E8 /* InsertRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB96091D034BDA008EB6E8 /* InsertRecordViewController.swift */; };
+		28DB960C1D034E6C008EB6E8 /* NinjaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB960B1D034E6C008EB6E8 /* NinjaCell.swift */; };
+		28DB96141D035131008EB6E8 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DB960E1D035131008EB6E8 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		28DB96161D035131008EB6E8 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DB96101D035131008EB6E8 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		28DB96181D035131008EB6E8 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DB96121D035131008EB6E8 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		28DB961A1D03518D008EB6E8 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28DB96191D03518D008EB6E8 /* libsqlite3.0.tbd */; };
+		28DB961D1D03560F008EB6E8 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB961C1D03560F008EB6E8 /* Util.swift */; };
+		28DB961F1D036451008EB6E8 /* Ninja.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28DB961E1D036451008EB6E8 /* Ninja.sqlite */; };
+		28DB96211D036513008EB6E8 /* NinjaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB96201D036513008EB6E8 /* NinjaInfo.swift */; };
+		28DB96231D0365E8008EB6E8 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB96221D0365E8008EB6E8 /* ModelManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		28D7DC861D0334F9007C50C6 /* BattleDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D7DC891D0334F9007C50C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		28D7DC8B1D0334F9007C50C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		28D7DC8E1D0334F9007C50C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28D7DC901D0334F9007C50C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28D7DC931D0334F9007C50C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28D7DC951D0334F9007C50C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28D7DCA11D033F07007C50C6 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		28DB96091D034BDA008EB6E8 /* InsertRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertRecordViewController.swift; sourceTree = "<group>"; };
+		28DB960B1D034E6C008EB6E8 /* NinjaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinjaCell.swift; sourceTree = "<group>"; };
+		28DB960D1D035131008EB6E8 /* FMDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = ../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMDatabase.h; sourceTree = "<group>"; };
+		28DB960E1D035131008EB6E8 /* FMDatabase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = ../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMDatabase.m; sourceTree = "<group>"; };
+		28DB960F1D035131008EB6E8 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = ../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		28DB96101D035131008EB6E8 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = ../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		28DB96111D035131008EB6E8 /* FMResultSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = ../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMResultSet.h; sourceTree = "<group>"; };
+		28DB96121D035131008EB6E8 /* FMResultSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = ../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMResultSet.m; sourceTree = "<group>"; };
+		28DB96191D03518D008EB6E8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		28DB961B1D035213008EB6E8 /* BattleDatabase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "BattleDatabase-Bridging-Header.h"; path = "BattleDatabase/BattleDatabase-Bridging-Header.h"; sourceTree = "<group>"; };
+		28DB961C1D03560F008EB6E8 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		28DB961E1D036451008EB6E8 /* Ninja.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ninja.sqlite; path = BattleDatabase/Ninja.sqlite; sourceTree = "<group>"; };
+		28DB96201D036513008EB6E8 /* NinjaInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinjaInfo.swift; sourceTree = "<group>"; };
+		28DB96221D0365E8008EB6E8 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28DB961A1D03518D008EB6E8 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +63,15 @@
 		28D7DC7D1D0334F9007C50C6 = {
 			isa = PBXGroup;
 			children = (
+				28DB961E1D036451008EB6E8 /* Ninja.sqlite */,
+				28DB961B1D035213008EB6E8 /* BattleDatabase-Bridging-Header.h */,
+				28DB96191D03518D008EB6E8 /* libsqlite3.0.tbd */,
+				28DB960D1D035131008EB6E8 /* FMDatabase.h */,
+				28DB960E1D035131008EB6E8 /* FMDatabase.m */,
+				28DB960F1D035131008EB6E8 /* FMDatabaseAdditions.h */,
+				28DB96101D035131008EB6E8 /* FMDatabaseAdditions.m */,
+				28DB96111D035131008EB6E8 /* FMResultSet.h */,
+				28DB96121D035131008EB6E8 /* FMResultSet.m */,
 				28D7DC881D0334F9007C50C6 /* BattleDatabase */,
 				28D7DC871D0334F9007C50C6 /* Products */,
 			);
@@ -55,8 +89,13 @@
 			isa = PBXGroup;
 			children = (
 				28D7DC891D0334F9007C50C6 /* AppDelegate.swift */,
-				28D7DC8B1D0334F9007C50C6 /* ViewController.swift */,
+				28D7DCA11D033F07007C50C6 /* HomeScreenViewController.swift */,
+				28DB96221D0365E8008EB6E8 /* ModelManager.swift */,
+				28DB96201D036513008EB6E8 /* NinjaInfo.swift */,
+				28DB961C1D03560F008EB6E8 /* Util.swift */,
+				28DB96091D034BDA008EB6E8 /* InsertRecordViewController.swift */,
 				28D7DC8D1D0334F9007C50C6 /* Main.storyboard */,
+				28DB960B1D034E6C008EB6E8 /* NinjaCell.swift */,
 				28D7DC901D0334F9007C50C6 /* Assets.xcassets */,
 				28D7DC921D0334F9007C50C6 /* LaunchScreen.storyboard */,
 				28D7DC951D0334F9007C50C6 /* Info.plist */,
@@ -122,6 +161,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28DB961F1D036451008EB6E8 /* Ninja.sqlite in Resources */,
 				28D7DC941D0334F9007C50C6 /* LaunchScreen.storyboard in Resources */,
 				28D7DC911D0334F9007C50C6 /* Assets.xcassets in Resources */,
 				28D7DC8F1D0334F9007C50C6 /* Main.storyboard in Resources */,
@@ -135,8 +175,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28D7DC8C1D0334F9007C50C6 /* ViewController.swift in Sources */,
+				28DB96141D035131008EB6E8 /* FMDatabase.m in Sources */,
+				28DB96161D035131008EB6E8 /* FMDatabaseAdditions.m in Sources */,
+				28DB96181D035131008EB6E8 /* FMResultSet.m in Sources */,
+				28DB961D1D03560F008EB6E8 /* Util.swift in Sources */,
+				28DB96211D036513008EB6E8 /* NinjaInfo.swift in Sources */,
+				28DB960A1D034BDA008EB6E8 /* InsertRecordViewController.swift in Sources */,
 				28D7DC8A1D0334F9007C50C6 /* AppDelegate.swift in Sources */,
+				28DB96231D0365E8008EB6E8 /* ModelManager.swift in Sources */,
+				28D7DCA21D033F07007C50C6 /* HomeScreenViewController.swift in Sources */,
+				28DB960C1D034E6C008EB6E8 /* NinjaCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +301,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stevshidae.BattleDatabase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./BattleDatabase/BattleDatabase-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -264,6 +313,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stevshidae.BattleDatabase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./BattleDatabase/BattleDatabase-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -286,6 +336,7 @@
 				28D7DC9A1D0334F9007C50C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
