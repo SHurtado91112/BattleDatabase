@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,57 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battle Database" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iS-2F-59D">
+                                <rect key="frame" x="196" y="76" width="209" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="209" id="47D-D1-l8W"/>
+                                    <constraint firstAttribute="height" constant="58" id="bLy-ix-0M2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="40"/>
+                                <color key="textColor" red="0.98039215690000003" green="0.27450980390000002" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="106" y="17" width="209" height="58"/>
+                                </variation>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LTE-tj-Th3">
+                                <rect key="frame" x="20" y="225" width="600" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="jP6-cK-7lQ"/>
+                                </constraints>
+                                <string key="text">References: 
+
+http://www.theappguruz.com/blog/use-sqlite-database-swift
+
+Naruto: The Official Character Data Book - Masashi Kishimoto</string>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battle Database - Steven Hurtado - 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxu-Rh-3p6">
+                                <rect key="frame" x="297" y="559" width="283" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="283" id="2Eg-Uc-UWy"/>
+                                    <constraint firstAttribute="height" constant="21" id="3tH-Dx-qSH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="LTE-tj-Th3" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="3B0-8O-hC1"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="LTE-tj-Th3" secondAttribute="leading" id="3ZP-L1-TBM"/>
+                            <constraint firstItem="LTE-tj-Th3" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="LjR-aT-heJ"/>
+                            <constraint firstItem="4iS-2F-59D" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="56" id="RNh-Cb-fDC"/>
+                            <constraint firstItem="4iS-2F-59D" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="alt-l9-DAH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wxu-Rh-3p6" secondAttribute="trailing" id="h0U-vJ-AMp"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="wxu-Rh-3p6" secondAttribute="bottom" constant="20" id="ldC-Qu-a2n"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

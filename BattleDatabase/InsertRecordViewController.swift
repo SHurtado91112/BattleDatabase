@@ -28,6 +28,8 @@ class InsertRecordViewController: UIViewController {
         {
             txtName.text = ninjaData.Name;
             txtMarks.text = ninjaData.RegisNum;
+            txtRank.text = ninjaData.Rank;
+            txtStrength.text = ninjaData.Strength;
         }
         // Do any ad
         
