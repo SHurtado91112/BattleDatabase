@@ -16,7 +16,7 @@ class Util: NSObject
         let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
         let fileURL = documentsURL.URLByAppendingPathComponent(fileName)
         
-        //print("Your final DB path : \(fileURL.path!)")
+        print("Your final DB path : \(fileURL.path!)")
         
         return fileURL.path!
     }

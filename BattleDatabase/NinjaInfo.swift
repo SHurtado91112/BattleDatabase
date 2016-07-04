@@ -15,4 +15,6 @@ class NinjaInfo: NSObject
     var RegisNum: String = String();
     var Rank: String = String();
     var Strength: String = String();
+    var UserName: String = String();
+    var PassWord: String = String();
 }

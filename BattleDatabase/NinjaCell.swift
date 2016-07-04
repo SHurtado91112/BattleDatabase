@@ -19,6 +19,9 @@ class NinjaCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        btnEdit.layer.cornerRadius = 10
+        btnDelete.layer.cornerRadius = 10
+        
         // Initialization code
     }
 

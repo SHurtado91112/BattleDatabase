@@ -18,6 +18,8 @@ class InsertRecordViewController: UIViewController {
     
     @IBOutlet weak var txtStrength: UITextField!
     
+    @IBOutlet weak var btnSave: UIButton!
+    
     var isEdit : Bool = false
     var ninjaData : NinjaInfo!
     
@@ -31,9 +33,9 @@ class InsertRecordViewController: UIViewController {
             txtRank.text = ninjaData.Rank;
             txtStrength.text = ninjaData.Strength;
         }
-        // Do any ad
         
         // Do any additional setup after loading the view.
+        btnSave.layer.cornerRadius = 10
     }
     
     override func didReceiveMemoryWarning()

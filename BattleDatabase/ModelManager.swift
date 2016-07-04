@@ -24,17 +24,32 @@ class ModelManager: NSObject
         return sharedInstance
     }
     
+    func getNinjaUserName(user: String) -> Bool
+    {
+        sharedInstance.database!.open()
+        let username = sharedInstance.database!.executeQuery("SELECT UserName FROM ninja_info", withArgumentsInArray: nil)
+        sharedInstance.database!.close()
+        return user == username
+    }
+    func getNinjaPassWord(pass: String) -> Bool
+    {
+        sharedInstance.database!.open()
+        let password = sharedInstance.database!.executeQuery("SELECT PassWord FROM ninja_info", withArgumentsInArray: nil)
+        sharedInstance.database!.close()
+        return pass == password
+    }
+    
     func addNinjaData(ninjaInfo: NinjaInfo) -> Bool
     {
         sharedInstance.database!.open()
-        let isInserted = sharedInstance.database!.executeUpdate("INSERT INTO ninja_info (Name, RegistryNum, Rank, Strength) VALUES (?, ?, ?, ?)", withArgumentsInArray: [ninjaInfo.Name, ninjaInfo.RegisNum, ninjaInfo.Rank, ninjaInfo.Strength])
+        let isInserted = sharedInstance.database!.executeUpdate("INSERT INTO ninja_info (Name, RegistryNum, Rank, Strength, UserName, PassWord) VALUES (?, ?, ?, ?, ?, ?)", withArgumentsInArray: [ninjaInfo.Name, ninjaInfo.RegisNum, ninjaInfo.Rank, ninjaInfo.Strength, ninjaInfo.UserName, ninjaInfo.PassWord])
         sharedInstance.database!.close()
         return isInserted
     }
     
     func updateNinjaData(ninjaInfo: NinjaInfo) -> Bool {
         sharedInstance.database!.open()
-        let isUpdated = sharedInstance.database!.executeUpdate("UPDATE ninja_info SET Name=?, RegistryNum=?, Rank=?, Strength=? WHERE RollNo=?", withArgumentsInArray: [ninjaInfo.Name, ninjaInfo.RegisNum, ninjaInfo.Rank, ninjaInfo.Strength, ninjaInfo.RollNo])
+        let isUpdated = sharedInstance.database!.executeUpdate("UPDATE ninja_info SET Name=?, RegistryNum=?, Rank=?, Strength=?, UserName=?, PassWord=? WHERE RollNo=?", withArgumentsInArray: [ninjaInfo.Name, ninjaInfo.RegisNum, ninjaInfo.Rank, ninjaInfo.Strength, ninjaInfo.RollNo])
         sharedInstance.database!.close()
         return isUpdated
     }
@@ -58,6 +73,8 @@ class ModelManager: NSObject
                 ninjaInfo.RegisNum = resultSet.stringForColumn("RegistryNum")
                 ninjaInfo.Rank = resultSet.stringForColumn("Rank")
                 ninjaInfo.Strength = resultSet.stringForColumn("Strength")
+                ninjaInfo.UserName = resultSet.stringForColumn("UserName")
+                ninjaInfo.PassWord = resultSet.stringForColumn("PassWord")
                 marrNinjaInfo.addObject(ninjaInfo)
             }
         }

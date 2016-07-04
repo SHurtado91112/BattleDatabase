@@ -48,7 +48,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.1902066852" green="0.1902066852" blue="0.1902066852" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Ps7-UC-N4w" firstAttribute="leading" secondItem="9Q7-56-cE8" secondAttribute="leading" constant="22" id="0Mh-H9-0c9"/>
                                     <constraint firstAttribute="height" constant="98" id="xBc-5h-A2q"/>
@@ -116,7 +116,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFD-1M-38M">
                                         <rect key="frame" x="139" y="115" width="56" height="43"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
                                         <state key="normal" title="Save">
                                             <color key="titleColor" red="0.98039215690000003" green="0.27450980390000002" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -156,7 +156,7 @@
                                         </variation>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="317" id="jba-Yz-RWu"/>
                                 </constraints>
@@ -184,7 +184,7 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="9Q7-56-cE8" firstAttribute="width" secondItem="BZm-zW-roj" secondAttribute="width" id="KoJ-rc-xb0"/>
                             <constraint firstItem="RlP-0s-AW8" firstAttribute="leading" secondItem="BZm-zW-roj" secondAttribute="leadingMargin" constant="-20" id="REH-eo-vJ3"/>
@@ -218,6 +218,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="btnSave" destination="yFD-1M-38M" id="3tC-5a-9Az"/>
                         <outlet property="txtMarks" destination="4uB-T2-F2c" id="api-Cg-ngv"/>
                         <outlet property="txtName" destination="w64-az-zvG" id="uOg-vx-9Xs"/>
                         <outlet property="txtRank" destination="gsK-8E-Bcp" id="rEF-9O-oD6"/>
@@ -237,12 +238,218 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ra4-Pl-uFn" kind="relationship" relationship="rootViewController" id="qJB-VD-Ou6"/>
+                        <segue destination="AEC-QY-EJ5" kind="relationship" relationship="rootViewController" id="ddX-11-U7h"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="byN-uG-FIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="379"/>
+            <point key="canvasLocation" x="-618" y="379"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="4yI-Az-BHu">
+            <objects>
+                <viewController title="Sign Up View Controller" id="UIm-tz-TMY" customClass="SignUpViewController" customModule="BattleDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hbf-OM-7DW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qpy-1C-4Pf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z7p-lZ-TlY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verify Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G1t-Tu-xy5">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="133" y="330" width="134" height="30"/>
+                                </variation>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ov1-SZ-Tnh">
+                                <rect key="frame" x="58" y="20" width="209" height="58"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="40"/>
+                                <color key="textColor" red="0.98039215690000003" green="0.27450980390000002" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="151" y="146" width="99" height="51"/>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9p-ex-P4s">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="133" y="240" width="134" height="30"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqG-1N-caO">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="I have an account.">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.27450980390000002" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="138" y="550" width="125" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="AEC-QY-EJ5" kind="show" identifier="loginSegue" id="YSa-R3-ny3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l34-bo-faH">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.27450980390000002" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="162" y="425" width="77" height="49"/>
+                                </variation>
+                                <connections>
+                                    <action selector="signUpBtn:" destination="UIm-tz-TMY" eventType="touchUpInside" id="GGl-Pi-J9Q"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjt-dK-QhD">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="133" y="285" width="134" height="30"/>
+                                </variation>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="G1t-Tu-xy5"/>
+                                <exclude reference="ov1-SZ-Tnh"/>
+                                <exclude reference="B9p-ex-P4s"/>
+                                <exclude reference="hqG-1N-caO"/>
+                                <exclude reference="l34-bo-faH"/>
+                                <exclude reference="Gjt-dK-QhD"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="G1t-Tu-xy5"/>
+                                <include reference="ov1-SZ-Tnh"/>
+                                <include reference="B9p-ex-P4s"/>
+                                <include reference="hqG-1N-caO"/>
+                                <include reference="l34-bo-faH"/>
+                                <include reference="Gjt-dK-QhD"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="ba8-cY-5LC"/>
+                    <connections>
+                        <outlet property="btnRegister" destination="l34-bo-faH" id="0ZK-dE-XjB"/>
+                        <outlet property="passWordTextField" destination="Gjt-dK-QhD" id="MNT-t9-Tea"/>
+                        <outlet property="userNameTextField" destination="B9p-ex-P4s" id="tTY-18-aDD"/>
+                        <outlet property="verifyTextField" destination="G1t-Tu-xy5" id="20X-fM-ccj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oli-fc-ien" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="240" y="-391"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="q8I-6q-HMx">
+            <objects>
+                <viewController title="Login View Controller" id="AEC-QY-EJ5" customClass="LoginViewController" customModule="BattleDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hb9-Lv-LtE"/>
+                        <viewControllerLayoutGuide type="bottom" id="XoD-1E-tfQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s0x-G9-4Cx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y97-vr-FVH">
+                                <rect key="frame" x="58" y="20" width="209" height="58"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="40"/>
+                                <color key="textColor" red="0.98039215690000003" green="0.27450980390000002" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="161" y="146" width="78" height="51"/>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J6P-S0-ol2">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="133" y="243" width="134" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wbo-4q-4AL">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="133" y="285" width="134" height="30"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEW-G0-Wex">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="No account?">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.27450980390000002" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="157" y="550" width="87" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="UIm-tz-TMY" kind="show" identifier="signUpSegue" id="H1V-EK-MPG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBp-o7-42C">
+                                <rect key="frame" x="232" y="8" width="74" height="27"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.27450980390000002" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="163" y="423" width="74" height="49"/>
+                                </variation>
+                                <connections>
+                                    <action selector="btnEditClicked:" destination="ra4-Pl-uFn" eventType="touchUpInside" id="XWu-1f-Wtt"/>
+                                    <action selector="signInAction:" destination="AEC-QY-EJ5" eventType="touchUpInside" id="db8-6L-lnR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="y97-vr-FVH"/>
+                                <exclude reference="J6P-S0-ol2"/>
+                                <exclude reference="wbo-4q-4AL"/>
+                                <exclude reference="DEW-G0-Wex"/>
+                                <exclude reference="nBp-o7-42C"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="y97-vr-FVH"/>
+                                <include reference="J6P-S0-ol2"/>
+                                <include reference="wbo-4q-4AL"/>
+                                <include reference="DEW-G0-Wex"/>
+                                <include reference="nBp-o7-42C"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="Efb-p6-gEH"/>
+                    <connections>
+                        <outlet property="btnSignIn" destination="nBp-o7-42C" id="WFo-IP-gF8"/>
+                        <outlet property="passWordTextField" destination="wbo-4q-4AL" id="q5M-eI-ReN"/>
+                        <outlet property="userNameTextField" destination="J6P-S0-ol2" id="tXf-vH-8Ku"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EQo-UG-13I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="240" y="379"/>
         </scene>
         <!--Home Screen View Controller-->
         <scene sceneID="j1M-XW-uxg">
@@ -284,7 +491,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.1902066852" green="0.1902066852" blue="0.1902066852" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="98" id="FdF-8f-LsB"/>
                                 </constraints>
@@ -306,7 +513,7 @@
                                     <constraint firstAttribute="height" constant="482" id="7w7-z1-tB8"/>
                                 </constraints>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="oED-QZ-7yy" customClass="NinjaCell" customModule="BattleDatabase" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="397" height="44"/>
@@ -317,7 +524,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRw-YX-AAa">
                                                     <rect key="frame" x="314" y="8" width="74" height="27"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
                                                     <state key="normal" title="Delete">
                                                         <color key="titleColor" red="0.98039215690000003" green="0.27450980390000002" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -331,7 +538,7 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2y-m6-gAZ">
                                                     <rect key="frame" x="232" y="8" width="74" height="27"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
                                                     <state key="normal" title="Edit">
                                                         <color key="titleColor" red="0.98039215690000003" green="0.27450980390000002" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -354,7 +561,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.19020668523871787" green="0.19020668523871787" blue="0.19020668523871787" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="btnDelete" destination="mRw-YX-AAa" id="lzl-Tu-Wxc"/>
                                             <outlet property="btnEdit" destination="d2y-m6-gAZ" id="ume-dW-tyM"/>
@@ -420,6 +627,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="ddX-11-U7h"/>
         <segue reference="ig7-fr-jK7"/>
     </inferredMetricsTieBreakers>
 </document>

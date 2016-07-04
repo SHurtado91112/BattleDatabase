@@ -22,6 +22,8 @@
 		28DB961F1D036451008EB6E8 /* Ninja.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28DB961E1D036451008EB6E8 /* Ninja.sqlite */; };
 		28DB96211D036513008EB6E8 /* NinjaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB96201D036513008EB6E8 /* NinjaInfo.swift */; };
 		28DB96231D0365E8008EB6E8 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB96221D0365E8008EB6E8 /* ModelManager.swift */; };
+		28FE36421D1B3C3000DBAE2E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FE36411D1B3C3000DBAE2E /* LoginViewController.swift */; };
+		28FE36441D1B3C4600DBAE2E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FE36431D1B3C4600DBAE2E /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		28DB96201D036513008EB6E8 /* NinjaInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinjaInfo.swift; sourceTree = "<group>"; };
 		28DB96221D0365E8008EB6E8 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		28EA2A7C1D04CED7006A5CBA /* BattleDatabase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "BattleDatabase-Bridging-Header.h"; path = "BattleDatabase/BattleDatabase-Bridging-Header.h"; sourceTree = "<group>"; };
+		28FE36411D1B3C3000DBAE2E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		28FE36431D1B3C4600DBAE2E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,12 +95,14 @@
 			isa = PBXGroup;
 			children = (
 				28D7DC891D0334F9007C50C6 /* AppDelegate.swift */,
+				28FE36411D1B3C3000DBAE2E /* LoginViewController.swift */,
+				28FE36431D1B3C4600DBAE2E /* SignUpViewController.swift */,
+				28D7DC8D1D0334F9007C50C6 /* Main.storyboard */,
 				28D7DCA11D033F07007C50C6 /* HomeScreenViewController.swift */,
 				28DB96221D0365E8008EB6E8 /* ModelManager.swift */,
 				28DB96201D036513008EB6E8 /* NinjaInfo.swift */,
 				28DB961C1D03560F008EB6E8 /* Util.swift */,
 				28DB96091D034BDA008EB6E8 /* InsertRecordViewController.swift */,
-				28D7DC8D1D0334F9007C50C6 /* Main.storyboard */,
 				28DB960B1D034E6C008EB6E8 /* NinjaCell.swift */,
 				28D7DC901D0334F9007C50C6 /* Assets.xcassets */,
 				28D7DC921D0334F9007C50C6 /* LaunchScreen.storyboard */,
@@ -177,11 +183,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28FE36421D1B3C3000DBAE2E /* LoginViewController.swift in Sources */,
 				28DB96141D035131008EB6E8 /* FMDatabase.m in Sources */,
 				28DB96161D035131008EB6E8 /* FMDatabaseAdditions.m in Sources */,
 				28DB96181D035131008EB6E8 /* FMResultSet.m in Sources */,
 				28DB961D1D03560F008EB6E8 /* Util.swift in Sources */,
 				28DB96211D036513008EB6E8 /* NinjaInfo.swift in Sources */,
+				28FE36441D1B3C4600DBAE2E /* SignUpViewController.swift in Sources */,
 				28DB960A1D034BDA008EB6E8 /* InsertRecordViewController.swift in Sources */,
 				28D7DC8A1D0334F9007C50C6 /* AppDelegate.swift in Sources */,
 				28DB96231D0365E8008EB6E8 /* ModelManager.swift in Sources */,
