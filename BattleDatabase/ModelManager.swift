@@ -24,24 +24,76 @@ class ModelManager: NSObject
         return sharedInstance
     }
     
+    //function that checks for username availability
     func getNinjaUserName(user: String) -> Bool
     {
+        
+        var username = ""
         sharedInstance.database!.open()
-        let username = sharedInstance.database!.executeQuery("SELECT UserName FROM ninja_info", withArgumentsInArray: nil)
+        let usernameSet = sharedInstance.database!.executeQuery("SELECT UserName FROM ninja_info WHERE UserName = '" + user + "'", withArgumentsInArray: nil)
+       
+        var x = 0;
+        while usernameSet.next()
+        {
+            print("loop: " + String(x))
+            if(usernameSet.stringForColumn("UserName") != nil)
+            {
+                break;
+            }
+            x += 1;
+        }
+        
+        if(usernameSet.stringForColumn("UserName") == nil)
+        {
+            return false;
+        }
+        
+        username = usernameSet.stringForColumn("UserName")
+        
         sharedInstance.database!.close()
+        
+        //print("user : " + user)
+        print(username)
+        print(user == username)
+
         return user == username
     }
-    func getNinjaPassWord(pass: String) -> Bool
+    
+    //function that checks login conditions for username and password
+    func getNinjaPassWord(user: String, pass: String) -> Bool
     {
         sharedInstance.database!.open()
-        let password = sharedInstance.database!.executeQuery("SELECT PassWord FROM ninja_info", withArgumentsInArray: nil)
+        let usernameSet = sharedInstance.database!.executeQuery("SELECT UserName, PassWord FROM ninja_info WHERE UserName = '" + user + "'", withArgumentsInArray: nil)
+        
+        while usernameSet.next()
+        {
+            if(usernameSet.stringForColumn("UserName") != nil)
+            {
+                print(usernameSet.stringForColumn("UserName"))
+                break;
+            }
+        }
+        if(usernameSet.stringForColumn("UserName") == nil)
+        {
+            return false;
+        }
+        
+        let username = usernameSet.stringForColumn("UserName")
+        
+        let password = usernameSet.stringForColumn("PassWord")
+        
         sharedInstance.database!.close()
-        return pass == password
+        
+        print(user + " :U: " + username)
+        print(pass + " :P: " + password)
+        
+        return user == username && pass == password
     }
     
     func addNinjaData(ninjaInfo: NinjaInfo) -> Bool
     {
         sharedInstance.database!.open()
+        
         let isInserted = sharedInstance.database!.executeUpdate("INSERT INTO ninja_info (Name, RegistryNum, Rank, Strength, UserName, PassWord) VALUES (?, ?, ?, ?, ?, ?)", withArgumentsInArray: [ninjaInfo.Name, ninjaInfo.RegisNum, ninjaInfo.Rank, ninjaInfo.Strength, ninjaInfo.UserName, ninjaInfo.PassWord])
         sharedInstance.database!.close()
         return isInserted
@@ -49,7 +101,7 @@ class ModelManager: NSObject
     
     func updateNinjaData(ninjaInfo: NinjaInfo) -> Bool {
         sharedInstance.database!.open()
-        let isUpdated = sharedInstance.database!.executeUpdate("UPDATE ninja_info SET Name=?, RegistryNum=?, Rank=?, Strength=?, UserName=?, PassWord=? WHERE RollNo=?", withArgumentsInArray: [ninjaInfo.Name, ninjaInfo.RegisNum, ninjaInfo.Rank, ninjaInfo.Strength, ninjaInfo.RollNo])
+        let isUpdated = sharedInstance.database!.executeUpdate("UPDATE ninja_info SET Name=?, RegistryNum=?, Rank=?, Strength=? WHERE RollNo=?", withArgumentsInArray: [ninjaInfo.Name, ninjaInfo.RegisNum, ninjaInfo.Rank, ninjaInfo.Strength, ninjaInfo.RollNo])
         sharedInstance.database!.close()
         return isUpdated
     }
@@ -66,7 +118,10 @@ class ModelManager: NSObject
         let resultSet: FMResultSet! = sharedInstance.database!.executeQuery("SELECT * FROM ninja_info", withArgumentsInArray: nil)
         let marrNinjaInfo : NSMutableArray = NSMutableArray()
         if (resultSet != nil) {
-            while resultSet.next() {
+            
+            //retrieve values for table cells
+            while resultSet.next()
+            {
                 let ninjaInfo : NinjaInfo = NinjaInfo()
                 ninjaInfo.RollNo = resultSet.stringForColumn("RollNo")
                 ninjaInfo.Name = resultSet.stringForColumn("Name")
@@ -75,7 +130,13 @@ class ModelManager: NSObject
                 ninjaInfo.Strength = resultSet.stringForColumn("Strength")
                 ninjaInfo.UserName = resultSet.stringForColumn("UserName")
                 ninjaInfo.PassWord = resultSet.stringForColumn("PassWord")
-                marrNinjaInfo.addObject(ninjaInfo)
+                
+                //if values have not been set up yet (username/password created but no information created)
+                //then ignore
+                //if(resultSet.stringForColumn("Name") != "")
+                //{
+                    marrNinjaInfo.addObject(ninjaInfo)
+                //}
             }
         }
         sharedInstance.database!.close()

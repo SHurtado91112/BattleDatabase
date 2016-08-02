@@ -13,10 +13,16 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     var marrNinjaData : NSMutableArray!
     @IBOutlet weak var tbNinjaData: UITableView!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var userLabel: UILabel!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.userLabel.text! = Globals.currentUser
+        self.imageView.image = UIImage(named: "Drawing (1)")
     }
     
     override func viewWillAppear(animated: Bool)
@@ -46,6 +52,13 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     {
         let cell:NinjaCell = tableView.dequeueReusableCellWithIdentifier("cell") as! NinjaCell
         let ninja:NinjaInfo = marrNinjaData.objectAtIndex(indexPath.row) as! NinjaInfo
+        
+        if(ninja.UserName != Globals.currentUser)
+        {
+            cell.btnDelete.backgroundColor = UIColor.blackColor()
+            cell.btnEdit.backgroundColor = UIColor.blackColor()
+        }
+        
         cell.lblContent.text = "Name : \(ninja.Name) Rank : \(ninja.Rank)"
         cell.btnDelete.tag = indexPath.row
         cell.btnEdit.tag = indexPath.row

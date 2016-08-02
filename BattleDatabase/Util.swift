@@ -8,8 +8,17 @@
 
 import UIKit
 
+//struct for current user and pass
+struct Globals
+{
+    static var currentUser = ""
+    static var currentPass = ""
+}
+
+//class for utilities
 class Util: NSObject
 {
+
     class func getPath(fileName: String) -> String
     {
         

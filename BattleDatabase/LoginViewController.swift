@@ -32,30 +32,25 @@ class LoginViewController: UIViewController {
 
     @IBAction func signInAction(sender: AnyObject)
     {
-        var username = self.userNameTextField.text
-        var password = self.passWordTextField.text
+        let username = self.userNameTextField.text
+        let password = self.passWordTextField.text
         
-        var spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
+        let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
         spinner.startAnimating()
         
-        let userNameInfo = ModelManager.getInstance().getNinjaUserName(username!)
+        let passWordInfo = ModelManager.getInstance().getNinjaPassWord(username!, pass: password!)
         
-        let passWordInfo = ModelManager.getInstance().getNinjaPassWord(password!)
-        
-        if(userNameInfo)
+        if(passWordInfo)
         {
-            if(passWordInfo)
-            {
-                Util.invokeAlertMethod("", strBody: "Dey Match.", delegate: nil)
-            }
-            else
-            {
-                Util.invokeAlertMethod("", strBody: "user matches but not pass.", delegate: nil)
-            }
+            Util.invokeAlertMethod("", strBody: "Login Successful!", delegate: nil)
+            Globals.currentUser = username!
+            Globals.currentPass = password!
+            
+            self.performSegueWithIdentifier("verifiedSegue", sender: sender)
         }
         else
         {
-            Util.invokeAlertMethod("", strBody: "no matchi", delegate: nil)
+            Util.invokeAlertMethod("", strBody: "Login Failure.", delegate: nil)
         }
         
     }

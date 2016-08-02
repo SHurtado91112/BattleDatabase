@@ -32,29 +32,39 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpBtn(sender: AnyObject) {
         
-        var username = userNameTextField.text
+        let username = userNameTextField.text
         
-        let notExist = ModelManager.getInstance().getNinjaUserName(username!)
-        
-        if(!notExist)
+        let exists = ModelManager.getInstance().getNinjaUserName(username!)
+       
+        if(exists)
         {
+            Util.invokeAlertMethod("", strBody: "Username exists.",delegate: nil)
+        }
+        else
+        {
+        
             let ninjaInfo: NinjaInfo = NinjaInfo()
             ninjaInfo.Name = ""
             ninjaInfo.RegisNum = ""
             ninjaInfo.Rank = ""
             ninjaInfo.Strength = ""
             ninjaInfo.UserName = username!
-            ninjaInfo.PassWord = passWordTextField.text!
-            let isUpdated = ModelManager.getInstance().addNinjaData(ninjaInfo)
-            if isUpdated {
-                Util.invokeAlertMethod("", strBody: "Record updated successfully.", delegate: nil)
-            } else {
-                Util.invokeAlertMethod("", strBody: "Error in updating record.", delegate: nil)
+            if(passWordTextField.text! != "" && passWordTextField.text! == verifyTextField.text!)
+            {
+                ninjaInfo.PassWord = passWordTextField.text!
+                let canCreate = ModelManager.getInstance().addNinjaData(ninjaInfo)
+                if canCreate {
+                    Util.invokeAlertMethod("", strBody: "User created.", delegate: nil)
+                    self.performSegueWithIdentifier("loginSegue", sender: sender)
+                } else {
+                    Util.invokeAlertMethod("", strBody: "Error in creating user.", delegate: nil)
+                }
+
             }
-        }
-        else
-        {
-            Util.invokeAlertMethod("", strBody: "username exists.",delegate: nil)
+            else
+            {
+                Util.invokeAlertMethod("", strBody: "Error: Failed Password Confirmation. ", delegate: nil)
+            }
         }
     }
 
@@ -66,7 +76,7 @@ class SignUpViewController: UIViewController {
      } else {
      Util.invokeAlertMethod("", strBody: "Error in updating record.", delegate: nil)
      }
-
+ 
      
     // MARK: - Navigation
 

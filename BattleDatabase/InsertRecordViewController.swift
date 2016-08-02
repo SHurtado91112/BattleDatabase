@@ -47,7 +47,6 @@ class InsertRecordViewController: UIViewController {
     
     @IBAction func btnBackClicked(sender: AnyObject)
     {
-        self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func btnSaveClicked(sender: AnyObject)
@@ -92,6 +91,8 @@ class InsertRecordViewController: UIViewController {
                 ninjaInfo.RegisNum = txtMarks.text!
                 ninjaInfo.Rank = txtRank.text!
                 ninjaInfo.Strength = txtStrength.text!
+                ninjaInfo.UserName = Globals.currentUser
+                ninjaInfo.PassWord = Globals.currentPass
                 let isInserted = ModelManager.getInstance().addNinjaData(ninjaInfo)
                 if isInserted {
                     Util.invokeAlertMethod("", strBody: "Record Inserted successfully.", delegate: nil)
