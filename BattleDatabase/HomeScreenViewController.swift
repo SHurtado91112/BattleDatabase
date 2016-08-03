@@ -17,6 +17,8 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var userLabel: UILabel!
     
+    @IBOutlet weak var activitySpinner2: UIActivityIndicatorView!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -60,30 +62,79 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         }
         
         cell.lblContent.text = "Name : \(ninja.Name) Rank : \(ninja.Rank)"
+        cell.btnInfo.tag = indexPath.row
         cell.btnDelete.tag = indexPath.row
         cell.btnEdit.tag = indexPath.row
         return cell
     }
     
 
+    @IBAction func btnViewClicked(sender: AnyObject)
+    {
+        self.performSegueWithIdentifier("infoSegue", sender: sender)
+    }
     
     @IBAction func btnDeleteClicked(sender: AnyObject)
     {
+        
         let btnDelete : UIButton = sender as! UIButton
         let selectedIndex : Int = btnDelete.tag
         let ninjaInfo: NinjaInfo = marrNinjaData.objectAtIndex(selectedIndex) as! NinjaInfo
-        let isDeleted = ModelManager.getInstance().deleteNinjaData(ninjaInfo)
-        if isDeleted {
-            Util.invokeAlertMethod("", strBody: "Record deleted successfully.", delegate: nil)
-        } else {
-            Util.invokeAlertMethod("", strBody: "Error in deleting record.", delegate: nil)
+        
+        if(ninjaInfo.UserName == Globals.currentUser)
+        {
+            let isDeleted = ModelManager.getInstance().deleteNinjaData(ninjaInfo)
+            if isDeleted {
+                Util.invokeAlertMethod("", strBody: "Record deleted successfully.", delegate: nil)
+            } else {
+                Util.invokeAlertMethod("", strBody: "Error in deleting record.", delegate: nil)
+            }
+            self.getNinjaData()
         }
-        self.getNinjaData()
+        else
+        {
+            Util.invokeAlertMethod("", strBody: "Cannot Delete: Improper Permissions.", delegate: nil)
+        }
+        
     }
     
     @IBAction func btnEditClicked(sender: AnyObject)
     {
-        self.performSegueWithIdentifier("editSegue", sender: sender)
+        let btnEdit : UIButton = sender as! UIButton
+        let selectedIndex : Int = btnEdit.tag
+        let ninjaInfo: NinjaInfo = marrNinjaData.objectAtIndex(selectedIndex) as! NinjaInfo
+        
+        if(ninjaInfo.UserName == Globals.currentUser)
+        {
+            self.performSegueWithIdentifier("editSegue", sender: sender)
+        }
+        else
+        {
+            Util.invokeAlertMethod("", strBody: "Cannot Edit: Improper Permissions.", delegate: nil)
+        }
+    }
+    
+    @IBAction func logOutClicked(sender: AnyObject)
+    {
+        var timer2 = NSTimer()
+        timer2.invalidate()
+        
+        activitySpinner2.startAnimating()
+        activitySpinner2.hidden = false
+        
+        Util.invokeAlertMethod("", strBody: "Log Out Successful!", delegate: nil)
+        
+        timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(delayedAction2), userInfo: nil, repeats: false)
+    }
+    
+    
+    
+    func delayedAction2()
+    {
+        print("Timer 2 Called")
+        activitySpinner2.stopAnimating()
+        activitySpinner2.hidden = true
+        self.performSegueWithIdentifier("logOutSegue", sender: self)
     }
     
     // MARK: - Navigation
@@ -99,6 +150,14 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
             viewController.isEdit = true
             viewController.ninjaData = marrNinjaData.objectAtIndex(selectedIndex) as! NinjaInfo
         }
+        else if(segue.identifier == "infoSegue")
+        {
+            let btnInfo : UIButton = sender as! UIButton
+            let selectedIndex : Int = btnInfo.tag
+            let viewController : InfoViewController = segue.destinationViewController as! InfoViewController
+            viewController.ninjaData = marrNinjaData.objectAtIndex(selectedIndex) as! NinjaInfo
+        }
+
     }
 
 }

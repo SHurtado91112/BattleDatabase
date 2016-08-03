@@ -22,6 +22,9 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         btnRegister.layer.cornerRadius = 10
+        btnRegister.layer.shadowOffset = CGSizeMake(5,5)
+        btnRegister.layer.shadowRadius = 1
+        btnRegister.layer.shadowOpacity = 0.5
         // Do any additional setup after loading the view.
     }
 
@@ -38,7 +41,7 @@ class SignUpViewController: UIViewController {
        
         if(exists)
         {
-            Util.invokeAlertMethod("", strBody: "Username exists.",delegate: nil)
+            Util.invokeAlertMethod("", strBody: "Error: Username Exists.",delegate: nil)
         }
         else
         {
@@ -49,17 +52,21 @@ class SignUpViewController: UIViewController {
             ninjaInfo.Rank = ""
             ninjaInfo.Strength = ""
             ninjaInfo.UserName = username!
-            if(passWordTextField.text! != "" && passWordTextField.text! == verifyTextField.text!)
+            if(passWordTextField.text! != "" && userNameTextField.text! != "" && passWordTextField.text! == verifyTextField.text!)
             {
                 ninjaInfo.PassWord = passWordTextField.text!
                 let canCreate = ModelManager.getInstance().addNinjaData(ninjaInfo)
                 if canCreate {
-                    Util.invokeAlertMethod("", strBody: "User created.", delegate: nil)
+                    Util.invokeAlertMethod("", strBody: "User Created.", delegate: nil)
                     self.performSegueWithIdentifier("loginSegue", sender: sender)
                 } else {
-                    Util.invokeAlertMethod("", strBody: "Error in creating user.", delegate: nil)
+                    Util.invokeAlertMethod("", strBody: "Error: Failed to Create User.", delegate: nil)
                 }
 
+            }
+            else if(userNameTextField.text! == "")
+            {
+                Util.invokeAlertMethod("", strBody: "Error: No Username Entered.", delegate: nil)
             }
             else
             {

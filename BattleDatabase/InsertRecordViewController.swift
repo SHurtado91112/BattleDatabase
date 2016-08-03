@@ -20,6 +20,8 @@ class InsertRecordViewController: UIViewController {
     
     @IBOutlet weak var btnSave: UIButton!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     var isEdit : Bool = false
     var ninjaData : NinjaInfo!
     
@@ -28,14 +30,19 @@ class InsertRecordViewController: UIViewController {
         super.viewDidLoad()
         if(isEdit)
         {
-            txtName.text = ninjaData.Name;
-            txtMarks.text = ninjaData.RegisNum;
-            txtRank.text = ninjaData.Rank;
-            txtStrength.text = ninjaData.Strength;
+            txtName.text = ninjaData.Name
+            txtMarks.text = ninjaData.RegisNum
+            txtRank.text = ninjaData.Rank
+            txtStrength.text = ninjaData.Strength
         }
         
+        self.imageView.image = UIImage(named: "Drawing (2)")
+
         // Do any additional setup after loading the view.
         btnSave.layer.cornerRadius = 10
+        btnSave.layer.shadowOffset = CGSizeMake(5,5)
+        btnSave.layer.shadowRadius = 1
+        btnSave.layer.shadowOpacity = 0.5
     }
     
     override func didReceiveMemoryWarning()

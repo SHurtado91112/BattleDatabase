@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var passWordTextField: UITextField!
 
+    @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
+    
     @IBOutlet weak var btnSignIn: UIButton!
     
     var ninjaData : NinjaInfo!
@@ -21,6 +23,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         btnSignIn.layer.cornerRadius = 10
+        btnSignIn.layer.shadowOffset = CGSizeMake(5,5)
+        btnSignIn.layer.shadowRadius = 1
+        btnSignIn.layer.shadowOpacity = 0.5
+        
+        activitySpinner.hidden = true
         // Do any additional setup after loading the view.
     }
 
@@ -32,27 +39,55 @@ class LoginViewController: UIViewController {
 
     @IBAction func signInAction(sender: AnyObject)
     {
+        var timer = NSTimer()
+        
+        activitySpinner.hidden = false
+        activitySpinner.startAnimating()
+        
         let username = self.userNameTextField.text
         let password = self.passWordTextField.text
         
-        let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
-        spinner.startAnimating()
+        timer.invalidate()
+        
+        let userCheck = ModelManager.getInstance().getNinjaUserName(username!)
         
         let passWordInfo = ModelManager.getInstance().getNinjaPassWord(username!, pass: password!)
         
-        if(passWordInfo)
+        if(username! == "")
+        {
+            Util.invokeAlertMethod("", strBody: "Please enter a username.", delegate: nil)
+            activitySpinner.stopAnimating()
+            activitySpinner.hidden = true
+        }
+        else if(!userCheck)
+        {
+            Util.invokeAlertMethod("", strBody: "Account does not exist.", delegate: nil)
+            activitySpinner.stopAnimating()
+            activitySpinner.hidden = true
+        }
+        else if(passWordInfo)
         {
             Util.invokeAlertMethod("", strBody: "Login Successful!", delegate: nil)
             Globals.currentUser = username!
             Globals.currentPass = password!
-            
-            self.performSegueWithIdentifier("verifiedSegue", sender: sender)
+         
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(delayedAction), userInfo: nil, repeats: false)
+
         }
         else
         {
             Util.invokeAlertMethod("", strBody: "Login Failure.", delegate: nil)
+            activitySpinner.stopAnimating()
+            activitySpinner.hidden = true
         }
         
+    }
+    
+    func delayedAction() {
+        print("Timer Called")
+        activitySpinner.stopAnimating()
+        activitySpinner.hidden = true
+        self.performSegueWithIdentifier("verifiedSegue", sender: self)
     }
 /*
     @IBAction func pushSignUpView(sender: AnyObject) {
