@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var verifyTextField: UITextField!
     
+    @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,14 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpBtn(sender: AnyObject) {
+        
+        var timer = NSTimer()
+        
+        activitySpinner.hidden = false
+        activitySpinner.startAnimating()
+        
+        timer.invalidate()
+
         
         let username = userNameTextField.text
         
@@ -57,8 +66,7 @@ class SignUpViewController: UIViewController {
                 ninjaInfo.PassWord = passWordTextField.text!
                 let canCreate = ModelManager.getInstance().addNinjaData(ninjaInfo)
                 if canCreate {
-                    Util.invokeAlertMethod("", strBody: "User Created.", delegate: nil)
-                    self.performSegueWithIdentifier("loginSegue", sender: sender)
+                    timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(delayedAction), userInfo: nil, repeats: false)
                 } else {
                     Util.invokeAlertMethod("", strBody: "Error: Failed to Create User.", delegate: nil)
                 }
@@ -75,6 +83,15 @@ class SignUpViewController: UIViewController {
         }
     }
 
+    func delayedAction() {
+        print("Timer 0 Called")
+        activitySpinner.stopAnimating()
+        activitySpinner.hidden = true
+        self.performSegueWithIdentifier("registeredSegue", sender: self)
+        Util.invokeAlertMethod("", strBody: "User Created.", delegate: nil)
+
+    }
+    
     /*
      
      let isUpdated = ModelManager.getInstance().updateNinjaData(ninjaInfo)

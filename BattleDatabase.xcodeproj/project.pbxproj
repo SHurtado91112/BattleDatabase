@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28231FB61D5108CE00DA6C65 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 28231FB51D5108CE00DA6C65 /* logout.png */; };
 		28231FB81D516D4D00DA6C65 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28231FB71D516D4D00DA6C65 /* InfoViewController.swift */; };
 		28231FBB1D5188C900DA6C65 /* Drawing (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 28231FB91D5188C900DA6C65 /* Drawing (2).png */; };
 		28231FBC1D5188C900DA6C65 /* Drawing (3).png in Resources */ = {isa = PBXBuildFile; fileRef = 28231FBA1D5188C900DA6C65 /* Drawing (3).png */; };
@@ -26,6 +25,14 @@
 		28DB961F1D036451008EB6E8 /* Ninja.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28DB961E1D036451008EB6E8 /* Ninja.sqlite */; };
 		28DB96211D036513008EB6E8 /* NinjaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB96201D036513008EB6E8 /* NinjaInfo.swift */; };
 		28DB96231D0365E8008EB6E8 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB96221D0365E8008EB6E8 /* ModelManager.swift */; };
+		28EED4E51D53B31B0054D0BA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EED4E41D53B31B0054D0BA /* SWRevealViewController.m */; };
+		28EED4F01D53C89A0054D0BA /* revealScroll.png in Resources */ = {isa = PBXBuildFile; fileRef = 28EED4EF1D53C89A0054D0BA /* revealScroll.png */; };
+		28EED4F21D53D2550054D0BA /* RearRevealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EED4F11D53D2550054D0BA /* RearRevealTableViewController.swift */; };
+		28EED4F61D53DD290054D0BA /* RevealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EED4F51D53DD290054D0BA /* RevealTableViewCell.swift */; };
+		28EED4FB1D53F5E10054D0BA /* aboutIMG.png in Resources */ = {isa = PBXBuildFile; fileRef = 28EED4F71D53F5E10054D0BA /* aboutIMG.png */; };
+		28EED4FC1D53F5E10054D0BA /* deleteIMG.png in Resources */ = {isa = PBXBuildFile; fileRef = 28EED4F81D53F5E10054D0BA /* deleteIMG.png */; };
+		28EED4FD1D53F5E10054D0BA /* homeIMG.png in Resources */ = {isa = PBXBuildFile; fileRef = 28EED4F91D53F5E10054D0BA /* homeIMG.png */; };
+		28EED5001D53F6210054D0BA /* logOutIMG.png in Resources */ = {isa = PBXBuildFile; fileRef = 28EED4FF1D53F6210054D0BA /* logOutIMG.png */; };
 		28F061191D4FCF4600ECCD77 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F061181D4FCF4600ECCD77 /* libz.tbd */; };
 		28F0611B1D4FCF5400ECCD77 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F0611A1D4FCF5400ECCD77 /* SystemConfiguration.framework */; };
 		28F0611D1D4FCF5D00ECCD77 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F0611C1D4FCF5D00ECCD77 /* StoreKit.framework */; };
@@ -41,10 +48,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		28231FB51D5108CE00DA6C65 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = BattleDatabase/ImageResource/logout.png; sourceTree = "<group>"; };
 		28231FB71D516D4D00DA6C65 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		28231FB91D5188C900DA6C65 /* Drawing (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Drawing (2).png"; path = "BattleDatabase/ImageResource/Drawing (2).png"; sourceTree = "<group>"; };
-		28231FBA1D5188C900DA6C65 /* Drawing (3).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Drawing (3).png"; path = "BattleDatabase/ImageResource/Drawing (3).png"; sourceTree = "<group>"; };
+		28231FB91D5188C900DA6C65 /* Drawing (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Drawing (2).png"; path = "ImageResource/Drawing (2).png"; sourceTree = "<group>"; };
+		28231FBA1D5188C900DA6C65 /* Drawing (3).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Drawing (3).png"; path = "ImageResource/Drawing (3).png"; sourceTree = "<group>"; };
 		28D7DC861D0334F9007C50C6 /* BattleDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D7DC891D0334F9007C50C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28D7DC8E1D0334F9007C50C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,19 +60,27 @@
 		28D7DCA11D033F07007C50C6 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		28DB96091D034BDA008EB6E8 /* InsertRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertRecordViewController.swift; sourceTree = "<group>"; };
 		28DB960B1D034E6C008EB6E8 /* NinjaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinjaCell.swift; sourceTree = "<group>"; };
-		28DB960D1D035131008EB6E8 /* FMDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = ../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMDatabase.h; sourceTree = "<group>"; };
-		28DB960E1D035131008EB6E8 /* FMDatabase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = ../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMDatabase.m; sourceTree = "<group>"; };
-		28DB960F1D035131008EB6E8 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = ../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		28DB96101D035131008EB6E8 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = ../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		28DB96111D035131008EB6E8 /* FMResultSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = ../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMResultSet.h; sourceTree = "<group>"; };
-		28DB96121D035131008EB6E8 /* FMResultSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = ../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMResultSet.m; sourceTree = "<group>"; };
+		28DB960D1D035131008EB6E8 /* FMDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = ../../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMDatabase.h; sourceTree = "<group>"; };
+		28DB960E1D035131008EB6E8 /* FMDatabase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = ../../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMDatabase.m; sourceTree = "<group>"; };
+		28DB960F1D035131008EB6E8 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = ../../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		28DB96101D035131008EB6E8 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = ../../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		28DB96111D035131008EB6E8 /* FMResultSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = ../../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMResultSet.h; sourceTree = "<group>"; };
+		28DB96121D035131008EB6E8 /* FMResultSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = ../../DatabaseExampleSwift/DatabaseExampleSwift/fmdb/FMResultSet.m; sourceTree = "<group>"; };
 		28DB96191D03518D008EB6E8 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		28DB961B1D035213008EB6E8 /* BattleDatabase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "BattleDatabase-Bridging-Header.h"; path = "BattleDatabase/BattleDatabase-Bridging-Header.h"; sourceTree = "<group>"; };
+		28DB961B1D035213008EB6E8 /* BattleDatabase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BattleDatabase-Bridging-Header.h"; sourceTree = "<group>"; };
 		28DB961C1D03560F008EB6E8 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		28DB961E1D036451008EB6E8 /* Ninja.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ninja.sqlite; path = BattleDatabase/Ninja.sqlite; sourceTree = "<group>"; };
+		28DB961E1D036451008EB6E8 /* Ninja.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ninja.sqlite; sourceTree = "<group>"; };
 		28DB96201D036513008EB6E8 /* NinjaInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinjaInfo.swift; sourceTree = "<group>"; };
 		28DB96221D0365E8008EB6E8 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
-		28EA2A7C1D04CED7006A5CBA /* BattleDatabase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "BattleDatabase-Bridging-Header.h"; path = "BattleDatabase/BattleDatabase-Bridging-Header.h"; sourceTree = "<group>"; };
+		28EED4E31D53B31B0054D0BA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../../Downloads/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
+		28EED4E41D53B31B0054D0BA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../../Downloads/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.m"; sourceTree = "<group>"; };
+		28EED4EF1D53C89A0054D0BA /* revealScroll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = revealScroll.png; path = ImageResource/revealScroll.png; sourceTree = "<group>"; };
+		28EED4F11D53D2550054D0BA /* RearRevealTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RearRevealTableViewController.swift; sourceTree = "<group>"; };
+		28EED4F51D53DD290054D0BA /* RevealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealTableViewCell.swift; sourceTree = "<group>"; };
+		28EED4F71D53F5E10054D0BA /* aboutIMG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aboutIMG.png; path = ImageResource/aboutIMG.png; sourceTree = "<group>"; };
+		28EED4F81D53F5E10054D0BA /* deleteIMG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deleteIMG.png; path = ImageResource/deleteIMG.png; sourceTree = "<group>"; };
+		28EED4F91D53F5E10054D0BA /* homeIMG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homeIMG.png; path = ImageResource/homeIMG.png; sourceTree = "<group>"; };
+		28EED4FF1D53F6210054D0BA /* logOutIMG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logOutIMG.png; path = ImageResource/logOutIMG.png; sourceTree = "<group>"; };
 		28F061181D4FCF4600ECCD77 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		28F0611A1D4FCF5400ECCD77 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		28F0611C1D4FCF5D00ECCD77 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -76,7 +90,7 @@
 		28F061241D4FCF8300ECCD77 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28F061261D4FCF8D00ECCD77 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		28F061281D4FCF9800ECCD77 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		28F0612E1D4FEF1100ECCD77 /* Drawing (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Drawing (1).png"; path = "BattleDatabase/ImageResource/Drawing (1).png"; sourceTree = "<group>"; };
+		28F0612E1D4FEF1100ECCD77 /* Drawing (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Drawing (1).png"; path = "ImageResource/Drawing (1).png"; sourceTree = "<group>"; };
 		28FE36411D1B3C3000DBAE2E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		28FE36431D1B3C4600DBAE2E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,29 +119,7 @@
 		28D7DC7D1D0334F9007C50C6 = {
 			isa = PBXGroup;
 			children = (
-				28F061281D4FCF9800ECCD77 /* AudioToolbox.framework */,
-				28F061261D4FCF8D00ECCD77 /* CFNetwork.framework */,
-				28F061241D4FCF8300ECCD77 /* CoreGraphics.framework */,
-				28F061221D4FCF7900ECCD77 /* CoreLocation.framework */,
-				28F061201D4FCF7000ECCD77 /* QuartzCore.framework */,
-				28F0611E1D4FCF6600ECCD77 /* Security.framework */,
-				28F0611C1D4FCF5D00ECCD77 /* StoreKit.framework */,
-				28F0611A1D4FCF5400ECCD77 /* SystemConfiguration.framework */,
-				28F061181D4FCF4600ECCD77 /* libz.tbd */,
-				28DB961E1D036451008EB6E8 /* Ninja.sqlite */,
-				28DB961B1D035213008EB6E8 /* BattleDatabase-Bridging-Header.h */,
-				28EA2A7C1D04CED7006A5CBA /* BattleDatabase-Bridging-Header.h */,
-				28DB96191D03518D008EB6E8 /* libsqlite3.0.tbd */,
-				28DB960D1D035131008EB6E8 /* FMDatabase.h */,
-				28DB960E1D035131008EB6E8 /* FMDatabase.m */,
-				28DB960F1D035131008EB6E8 /* FMDatabaseAdditions.h */,
-				28DB96101D035131008EB6E8 /* FMDatabaseAdditions.m */,
-				28DB96111D035131008EB6E8 /* FMResultSet.h */,
-				28DB96121D035131008EB6E8 /* FMResultSet.m */,
-				28231FB51D5108CE00DA6C65 /* logout.png */,
-				28F0612E1D4FEF1100ECCD77 /* Drawing (1).png */,
-				28231FB91D5188C900DA6C65 /* Drawing (2).png */,
-				28231FBA1D5188C900DA6C65 /* Drawing (3).png */,
+				28EED4ED1D53B4730054D0BA /* Frameworks */,
 				28D7DC881D0334F9007C50C6 /* BattleDatabase */,
 				28D7DC871D0334F9007C50C6 /* Products */,
 			);
@@ -144,22 +136,123 @@
 		28D7DC881D0334F9007C50C6 /* BattleDatabase */ = {
 			isa = PBXGroup;
 			children = (
-				28D7DC891D0334F9007C50C6 /* AppDelegate.swift */,
-				28FE36411D1B3C3000DBAE2E /* LoginViewController.swift */,
-				28FE36431D1B3C4600DBAE2E /* SignUpViewController.swift */,
-				28D7DC8D1D0334F9007C50C6 /* Main.storyboard */,
-				28231FB71D516D4D00DA6C65 /* InfoViewController.swift */,
-				28D7DCA11D033F07007C50C6 /* HomeScreenViewController.swift */,
-				28DB96221D0365E8008EB6E8 /* ModelManager.swift */,
-				28DB96201D036513008EB6E8 /* NinjaInfo.swift */,
-				28DB961C1D03560F008EB6E8 /* Util.swift */,
-				28DB96091D034BDA008EB6E8 /* InsertRecordViewController.swift */,
-				28DB960B1D034E6C008EB6E8 /* NinjaCell.swift */,
-				28D7DC901D0334F9007C50C6 /* Assets.xcassets */,
+				28EED4EB1D53B4450054D0BA /* Resources */,
+				28EED4E91D53B40B0054D0BA /* Data */,
+				28EED4E71D53B3A30054D0BA /* Managers/Utilities */,
+				28EED4E61D53B3830054D0BA /* ViewControllers */,
 				28D7DC921D0334F9007C50C6 /* LaunchScreen.storyboard */,
+				28D7DC8D1D0334F9007C50C6 /* Main.storyboard */,
 				28D7DC951D0334F9007C50C6 /* Info.plist */,
 			);
 			path = BattleDatabase;
+			sourceTree = "<group>";
+		};
+		28EED4E61D53B3830054D0BA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				28FE36411D1B3C3000DBAE2E /* LoginViewController.swift */,
+				28FE36431D1B3C4600DBAE2E /* SignUpViewController.swift */,
+				28D7DCA11D033F07007C50C6 /* HomeScreenViewController.swift */,
+				28DB96091D034BDA008EB6E8 /* InsertRecordViewController.swift */,
+				28231FB71D516D4D00DA6C65 /* InfoViewController.swift */,
+				28EED4F11D53D2550054D0BA /* RearRevealTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		28EED4E71D53B3A30054D0BA /* Managers/Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				28D7DC891D0334F9007C50C6 /* AppDelegate.swift */,
+				28DB961C1D03560F008EB6E8 /* Util.swift */,
+				28DB96221D0365E8008EB6E8 /* ModelManager.swift */,
+				28DB96201D036513008EB6E8 /* NinjaInfo.swift */,
+				28DB960B1D034E6C008EB6E8 /* NinjaCell.swift */,
+				28EED4F51D53DD290054D0BA /* RevealTableViewCell.swift */,
+			);
+			name = Managers/Utilities;
+			sourceTree = "<group>";
+		};
+		28EED4E81D53B3E00054D0BA /* FMDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				28DB960D1D035131008EB6E8 /* FMDatabase.h */,
+				28DB960E1D035131008EB6E8 /* FMDatabase.m */,
+				28DB960F1D035131008EB6E8 /* FMDatabaseAdditions.h */,
+				28DB96101D035131008EB6E8 /* FMDatabaseAdditions.m */,
+				28DB96111D035131008EB6E8 /* FMResultSet.h */,
+				28DB96121D035131008EB6E8 /* FMResultSet.m */,
+			);
+			name = FMDatabase;
+			sourceTree = "<group>";
+		};
+		28EED4E91D53B40B0054D0BA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				28DB961E1D036451008EB6E8 /* Ninja.sqlite */,
+				28EED4EA1D53B4350054D0BA /* Images */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		28EED4EA1D53B4350054D0BA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				28F0612E1D4FEF1100ECCD77 /* Drawing (1).png */,
+				28231FB91D5188C900DA6C65 /* Drawing (2).png */,
+				28231FBA1D5188C900DA6C65 /* Drawing (3).png */,
+				28EED4EF1D53C89A0054D0BA /* revealScroll.png */,
+				28EED4F91D53F5E10054D0BA /* homeIMG.png */,
+				28EED4F71D53F5E10054D0BA /* aboutIMG.png */,
+				28EED4FF1D53F6210054D0BA /* logOutIMG.png */,
+				28EED4F81D53F5E10054D0BA /* deleteIMG.png */,
+				28D7DC901D0334F9007C50C6 /* Assets.xcassets */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		28EED4EB1D53B4450054D0BA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28DB961B1D035213008EB6E8 /* BattleDatabase-Bridging-Header.h */,
+				28EED4EE1D53B4A30054D0BA /* SWReveal */,
+				28EED4E81D53B3E00054D0BA /* FMDatabase */,
+				28EED4EC1D53B45E0054D0BA /* TBD */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		28EED4EC1D53B45E0054D0BA /* TBD */ = {
+			isa = PBXGroup;
+			children = (
+				28F061181D4FCF4600ECCD77 /* libz.tbd */,
+				28DB96191D03518D008EB6E8 /* libsqlite3.0.tbd */,
+			);
+			name = TBD;
+			sourceTree = "<group>";
+		};
+		28EED4ED1D53B4730054D0BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28F061281D4FCF9800ECCD77 /* AudioToolbox.framework */,
+				28F061261D4FCF8D00ECCD77 /* CFNetwork.framework */,
+				28F061241D4FCF8300ECCD77 /* CoreGraphics.framework */,
+				28F061221D4FCF7900ECCD77 /* CoreLocation.framework */,
+				28F061201D4FCF7000ECCD77 /* QuartzCore.framework */,
+				28F0611E1D4FCF6600ECCD77 /* Security.framework */,
+				28F0611C1D4FCF5D00ECCD77 /* StoreKit.framework */,
+				28F0611A1D4FCF5400ECCD77 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		28EED4EE1D53B4A30054D0BA /* SWReveal */ = {
+			isa = PBXGroup;
+			children = (
+				28EED4E31D53B31B0054D0BA /* SWRevealViewController.h */,
+				28EED4E41D53B31B0054D0BA /* SWRevealViewController.m */,
+			);
+			name = SWReveal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,14 +313,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28EED4FD1D53F5E10054D0BA /* homeIMG.png in Resources */,
 				28231FBB1D5188C900DA6C65 /* Drawing (2).png in Resources */,
 				28231FBC1D5188C900DA6C65 /* Drawing (3).png in Resources */,
-				28231FB61D5108CE00DA6C65 /* logout.png in Resources */,
 				28F0612F1D4FEF1100ECCD77 /* Drawing (1).png in Resources */,
 				28DB961F1D036451008EB6E8 /* Ninja.sqlite in Resources */,
+				28EED4FC1D53F5E10054D0BA /* deleteIMG.png in Resources */,
+				28EED4F01D53C89A0054D0BA /* revealScroll.png in Resources */,
 				28D7DC941D0334F9007C50C6 /* LaunchScreen.storyboard in Resources */,
+				28EED4FB1D53F5E10054D0BA /* aboutIMG.png in Resources */,
 				28D7DC911D0334F9007C50C6 /* Assets.xcassets in Resources */,
 				28D7DC8F1D0334F9007C50C6 /* Main.storyboard in Resources */,
+				28EED5001D53F6210054D0BA /* logOutIMG.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +341,10 @@
 				28DB96181D035131008EB6E8 /* FMResultSet.m in Sources */,
 				28DB961D1D03560F008EB6E8 /* Util.swift in Sources */,
 				28DB96211D036513008EB6E8 /* NinjaInfo.swift in Sources */,
+				28EED4F61D53DD290054D0BA /* RevealTableViewCell.swift in Sources */,
 				28FE36441D1B3C4600DBAE2E /* SignUpViewController.swift in Sources */,
+				28EED4E51D53B31B0054D0BA /* SWRevealViewController.m in Sources */,
+				28EED4F21D53D2550054D0BA /* RearRevealTableViewController.swift in Sources */,
 				28DB960A1D034BDA008EB6E8 /* InsertRecordViewController.swift in Sources */,
 				28D7DC8A1D0334F9007C50C6 /* AppDelegate.swift in Sources */,
 				28231FB81D516D4D00DA6C65 /* InfoViewController.swift in Sources */,

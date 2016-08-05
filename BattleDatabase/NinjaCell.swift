@@ -26,12 +26,12 @@ class NinjaCell: UITableViewCell {
         btnEdit.layer.shadowOffset = CGSizeMake(3,3)
         btnEdit.layer.shadowRadius = 1
         btnEdit.layer.shadowOpacity = 0.5
-        btnEdit.layer.shadowColor = UIColor.orangeColor().CGColor
+        btnEdit.layer.shadowColor = UIColor.blackColor().CGColor
         
         btnDelete.layer.shadowOffset = CGSizeMake(3,3)
         btnDelete.layer.shadowRadius = 1
         btnDelete.layer.shadowOpacity = 0.5
-        btnDelete.layer.shadowColor = UIColor.orangeColor().CGColor
+        btnDelete.layer.shadowColor = UIColor.blackColor().CGColor
         // Initialization code
     }
 

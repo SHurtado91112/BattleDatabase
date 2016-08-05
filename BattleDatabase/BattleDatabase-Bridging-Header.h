@@ -10,5 +10,6 @@
 #define BattleDatabase_Bridging_Header_h
 
 #include "FMDatabase.h"
+#include "SWRevealViewController.h"
 
 #endif /* BattleDatabase_Bridging_Header_h */

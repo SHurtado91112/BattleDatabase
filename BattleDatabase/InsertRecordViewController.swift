@@ -86,8 +86,10 @@ class InsertRecordViewController: UIViewController {
                 ninjaInfo.Strength = txtStrength.text!
                 let isUpdated = ModelManager.getInstance().updateNinjaData(ninjaInfo)
                 if isUpdated {
+                    self.performSegueWithIdentifier("savedSegue", sender: self)
                     Util.invokeAlertMethod("", strBody: "Record updated successfully.", delegate: nil)
                 } else {
+                    self.performSegueWithIdentifier("savedSegue", sender: self)
                     Util.invokeAlertMethod("", strBody: "Error in updating record.", delegate: nil)
                 }
             }
@@ -102,12 +104,13 @@ class InsertRecordViewController: UIViewController {
                 ninjaInfo.PassWord = Globals.currentPass
                 let isInserted = ModelManager.getInstance().addNinjaData(ninjaInfo)
                 if isInserted {
-                    Util.invokeAlertMethod("", strBody: "Record Inserted successfully.", delegate: nil)
+                    self.performSegueWithIdentifier("savedSegue", sender: self)
+                    Util.invokeAlertMethod("", strBody: "Record inserted successfully.", delegate: nil)
                 } else {
+                    self.performSegueWithIdentifier("savedSegue", sender: self)
                     Util.invokeAlertMethod("", strBody: "Error in inserting record.", delegate: nil)
                 }
             }
-            self.navigationController?.popViewControllerAnimated(true)
         }
     }
     

@@ -67,7 +67,6 @@ class LoginViewController: UIViewController {
         }
         else if(passWordInfo)
         {
-            Util.invokeAlertMethod("", strBody: "Login Successful!", delegate: nil)
             Globals.currentUser = username!
             Globals.currentPass = password!
          
@@ -88,6 +87,7 @@ class LoginViewController: UIViewController {
         activitySpinner.stopAnimating()
         activitySpinner.hidden = true
         self.performSegueWithIdentifier("verifiedSegue", sender: self)
+        Util.invokeAlertMethod("", strBody: "Login Successful!", delegate: nil)
     }
 /*
     @IBAction func pushSignUpView(sender: AnyObject) {

@@ -113,6 +113,13 @@ class ModelManager: NSObject
         return isDeleted
     }
     
+    func deleteUser(nin: String) -> Bool {
+        sharedInstance.database!.open()
+        let isDeleted = sharedInstance.database!.executeUpdate("DELETE FROM ninja_info WHERE UserName=?", withArgumentsInArray: [nin])
+        sharedInstance.database!.close()
+        return isDeleted
+    }
+    
     func getAllNinjaData() -> NSMutableArray {
         sharedInstance.database!.open()
         let resultSet: FMResultSet! = sharedInstance.database!.executeQuery("SELECT * FROM ninja_info", withArgumentsInArray: nil)

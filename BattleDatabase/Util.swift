@@ -13,6 +13,8 @@ struct Globals
 {
     static var currentUser = ""
     static var currentPass = ""
+    
+    let cellLabel  : String
 }
 
 //class for utilities
@@ -45,7 +47,12 @@ class Util: NSObject
             } catch let error1 as NSError {
                 error = error1
             }
-            let alert: UIAlertView = UIAlertView()
+            
+            let alert = UIAlertController(title: "", message: "", preferredStyle: .Alert)
+            let action1 = UIAlertAction(title: "Okay", style: .Default){ _ in}
+            
+            alert.addAction(action1)
+
             if (error != nil) {
                 alert.title = "Error Occured"
                 alert.message = error?.localizedDescription
@@ -53,19 +60,42 @@ class Util: NSObject
                 alert.title = "Successfully Copied"
                 alert.message = "Your database copied successfully"
             }
-            alert.delegate = nil
-            alert.addButtonWithTitle("Okay")
-            alert.show()
+            
+            let rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController
+            rootVC?.presentViewController(alert, animated: true){}
         }
     }
     
     class func invokeAlertMethod(strTitle: NSString, strBody: NSString, delegate: AnyObject?)
     {
-        var alert: UIAlertView = UIAlertView()
-        alert.message = strBody as String
-        alert.title = strTitle as String
-        alert.delegate = delegate
-        alert.addButtonWithTitle("Okay")
-        alert.show()
+        let alert = UIAlertController(title: strTitle as String, message: strBody as String, preferredStyle: .Alert)
+        let action1 = UIAlertAction(title: "Okay", style: .Default){ _ in}
+        
+        alert.addAction(action1)
+        
+        let rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController
+        rootVC?.presentViewController(alert, animated: true){}
     }
+    
+    /*
+    class func invokeDeletionAlertMethod(strTitle: NSString, strBody: NSString, delegate: AnyObject?) -> Int
+    {
+        let alert = UIAlertController(title: strTitle as String, message: strBody as String, preferredStyle: .ActionSheet)
+        let action1 = UIAlertAction(title: "Yes", style: .Destructive)
+        { _ in
+            return 1
+        }
+        let action2 = UIAlertAction(title: "No", style: .Default)
+        { _ in
+            return -1
+        }
+        
+        alert.addAction(action1)
+        alert.addAction(action2)
+        
+        let rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController
+        rootVC?.presentViewController(alert, animated: true){}
+        return 0
+    }
+     */
 }

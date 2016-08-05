@@ -5,6 +5,10 @@
 //  Created by Steven Hurtado on 6/4/16.
 //  Copyright © 2016 Hurtado_Steven. All rights reserved.
 //
+//TO-DO List:
+// - App Icon
+// - remove username showing
+// - activity spinner for log out/deletion of user
 
 import UIKit
 
@@ -15,16 +19,24 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet weak var userLabel: UILabel!
+    //@IBOutlet weak var userLabel: UILabel!
     
-    @IBOutlet weak var activitySpinner2: UIActivityIndicatorView!
+    @IBOutlet weak var open: UIBarButtonItem!
+    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.userLabel.text! = Globals.currentUser
+        //self.userLabel.text! = Globals.currentUser
         self.imageView.image = UIImage(named: "Drawing (1)")
+        
+        if(revealViewController() != nil)
+        {
+            open.target = revealViewController()
+            open.action = #selector(SWRevealViewController.revealToggle(_:))
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
     
     override func viewWillAppear(animated: Bool)
@@ -61,7 +73,7 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
             cell.btnEdit.backgroundColor = UIColor.blackColor()
         }
         
-        cell.lblContent.text = "Name : \(ninja.Name) Rank : \(ninja.Rank)"
+        cell.lblContent.text = "\(ninja.Name) \(ninja.UserName)"
         cell.btnInfo.tag = indexPath.row
         cell.btnDelete.tag = indexPath.row
         cell.btnEdit.tag = indexPath.row
@@ -76,20 +88,35 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBAction func btnDeleteClicked(sender: AnyObject)
     {
-        
         let btnDelete : UIButton = sender as! UIButton
         let selectedIndex : Int = btnDelete.tag
         let ninjaInfo: NinjaInfo = marrNinjaData.objectAtIndex(selectedIndex) as! NinjaInfo
         
+        //checking for proper user
         if(ninjaInfo.UserName == Globals.currentUser)
         {
-            let isDeleted = ModelManager.getInstance().deleteNinjaData(ninjaInfo)
-            if isDeleted {
-                Util.invokeAlertMethod("", strBody: "Record deleted successfully.", delegate: nil)
-            } else {
-                Util.invokeAlertMethod("", strBody: "Error in deleting record.", delegate: nil)
+            //action sheet for deletion of record
+            let alert = UIAlertController(title: "Wait!", message: "Are you sure you want to delete this record?" as String, preferredStyle: .ActionSheet)
+            let action1 = UIAlertAction(title: "Yes", style: .Destructive)
+            { _ in
+                let isDeleted = ModelManager.getInstance().deleteNinjaData(ninjaInfo)
+                if isDeleted {
+                    Util.invokeAlertMethod("", strBody: "Record deleted successfully.", delegate: nil)
+                } else {
+                    Util.invokeAlertMethod("", strBody: "Error in deleting record.", delegate: nil)
+                }
+                self.getNinjaData()
+                
             }
-            self.getNinjaData()
+            let action2 = UIAlertAction(title: "No", style: .Default)
+            { _ in
+                Util.invokeAlertMethod("", strBody: "Record not deleted.", delegate: nil)
+            }
+            
+            alert.addAction(action1)
+            alert.addAction(action2)
+            
+            self.presentViewController(alert, animated: true){}
         }
         else
         {
@@ -112,29 +139,6 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         {
             Util.invokeAlertMethod("", strBody: "Cannot Edit: Improper Permissions.", delegate: nil)
         }
-    }
-    
-    @IBAction func logOutClicked(sender: AnyObject)
-    {
-        var timer2 = NSTimer()
-        timer2.invalidate()
-        
-        activitySpinner2.startAnimating()
-        activitySpinner2.hidden = false
-        
-        Util.invokeAlertMethod("", strBody: "Log Out Successful!", delegate: nil)
-        
-        timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(delayedAction2), userInfo: nil, repeats: false)
-    }
-    
-    
-    
-    func delayedAction2()
-    {
-        print("Timer 2 Called")
-        activitySpinner2.stopAnimating()
-        activitySpinner2.hidden = true
-        self.performSegueWithIdentifier("logOutSegue", sender: self)
     }
     
     // MARK: - Navigation
