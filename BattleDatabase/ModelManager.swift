@@ -140,10 +140,10 @@ class ModelManager: NSObject
                 
                 //if values have not been set up yet (username/password created but no information created)
                 //then ignore
-               // if(resultSet.stringForColumn("Name") != "")
-             //   {
+                if(resultSet.stringForColumn("Name") != "")
+                {
                     marrNinjaInfo.addObject(ninjaInfo)
-                //}
+                }
             }
         }
         sharedInstance.database!.close()

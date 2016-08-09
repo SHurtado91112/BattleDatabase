@@ -5,9 +5,6 @@
 //  Created by Steven Hurtado on 6/4/16.
 //  Copyright © 2016 Hurtado_Steven. All rights reserved.
 //
-//TO-DO List:
-// - remove username showing
-// - password confidentiality
 
 import UIKit
 
@@ -97,7 +94,7 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
             cell.btnEdit.backgroundColor = UIColor.blackColor()
         }
         
-        cell.lblContent.text = "\(ninja.Name) \(ninja.UserName)"
+        cell.lblContent.text = "Name: \(ninja.Name)"
         cell.btnInfo.tag = indexPath.row
         cell.btnDelete.tag = indexPath.row
         cell.btnEdit.tag = indexPath.row

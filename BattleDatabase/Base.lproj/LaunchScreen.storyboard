@@ -47,11 +47,11 @@ SWRevealViewController Documentation - Joan Lluch joan.lluch@sweetwilliamsl.com<
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battle Database - Steven Hurtado - 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxu-Rh-3p6">
-                                <rect key="frame" x="297" y="559" width="283" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battle Database - Copyright © 2016 Steven Hurtado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxu-Rh-3p6">
+                                <rect key="frame" x="222" y="559" width="358" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="283" id="2Eg-Uc-UWy"/>
                                     <constraint firstAttribute="height" constant="21" id="3tH-Dx-qSH"/>
+                                    <constraint firstAttribute="width" constant="358" id="cQ5-S8-4l4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
