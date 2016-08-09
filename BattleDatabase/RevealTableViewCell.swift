@@ -14,8 +14,6 @@ class RevealTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cBtn: UIButton!
     
-    @IBOutlet weak var activitySpinner2: UIActivityIndicatorView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

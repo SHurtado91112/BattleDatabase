@@ -13,6 +13,8 @@ struct Globals
 {
     static var currentUser = ""
     static var currentPass = ""
+    static var logOutBool = false
+    static var deleteUser = false
     
     let cellLabel  : String
 }

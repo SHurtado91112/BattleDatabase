@@ -6,9 +6,8 @@
 //  Copyright © 2016 Hurtado_Steven. All rights reserved.
 //
 //TO-DO List:
-// - App Icon
 // - remove username showing
-// - activity spinner for log out/deletion of user
+// - password confidentiality
 
 import UIKit
 
@@ -20,6 +19,7 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var imageView: UIImageView!
     
     //@IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var activitySpinner2: UIActivityIndicatorView!
     
     @IBOutlet weak var open: UIBarButtonItem!
     
@@ -31,11 +31,35 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         //self.userLabel.text! = Globals.currentUser
         self.imageView.image = UIImage(named: "Drawing (1)")
         
+        self.activitySpinner2.hidden = true
+        self.activitySpinner2.stopAnimating()
         if(revealViewController() != nil)
         {
             open.target = revealViewController()
             open.action = #selector(SWRevealViewController.revealToggle(_:))
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+        if(Globals.logOutBool == true)
+        {
+            var timer2 = NSTimer()
+            timer2.invalidate()
+            
+            self.activitySpinner2.hidden = false
+            self.activitySpinner2.startAnimating()
+            
+            timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(delayedAction2), userInfo: nil, repeats: false)
+            
+        }
+        else if(Globals.deleteUser == true)
+        {
+            var timer2 = NSTimer()
+            timer2.invalidate()
+            
+            self.activitySpinner2.hidden = false
+            self.activitySpinner2.startAnimating()
+            
+            timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(delayedAction3), userInfo: nil, repeats: false)
         }
     }
     
@@ -141,6 +165,31 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    func delayedAction2()
+    {
+        
+        print("Timer 3 Called")
+    
+        Globals.logOutBool = false
+        self.activitySpinner2.hidden = true
+        self.activitySpinner2.stopAnimating()
+        
+        self.performSegueWithIdentifier("logOutSegue", sender: self)
+        Util.invokeAlertMethod("", strBody: "Log Out Successful!", delegate: nil)
+    }
+    
+    func delayedAction3()
+    {
+        
+        print("Timer 4 Called")
+        Globals.deleteUser = false
+        self.activitySpinner2.hidden = true
+        self.activitySpinner2.stopAnimating()
+        
+        self.performSegueWithIdentifier("logOutSegue", sender: self)
+        Util.invokeAlertMethod("", strBody: "User data deleted successfully.", delegate: nil)
+    }
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

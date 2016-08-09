@@ -8,7 +8,8 @@
 
 import UIKit
 
-class RearRevealTableViewController: UITableViewController {
+class RearRevealTableViewController: UITableViewController
+{
 
     var cellsArray = [Globals]()
     var imageArray = [UIImage]()
@@ -16,7 +17,8 @@ class RearRevealTableViewController: UITableViewController {
     //declared mutable cell for multiple func scope
     var cell : RevealTableViewCell! = nil
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
         //initializing arrays for cell creation
@@ -25,7 +27,8 @@ class RearRevealTableViewController: UITableViewController {
         self.imageArray = [UIImage(named: "homeIMG")!, UIImage(named: "aboutIMG")!, UIImage(named: "logOutIMG")!, UIImage(named: "deleteIMG")!]
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -66,13 +69,7 @@ class RearRevealTableViewController: UITableViewController {
         }
         else if(indexPath.row == 2)
         {
-            var timer2 = NSTimer()
-            timer2.invalidate()
-            
-            cell.activitySpinner2.startAnimating()
-            cell.activitySpinner2.hidden = false
-            
-            timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(delayedAction2), userInfo: nil, repeats: false)
+            self.performSegueWithIdentifier("homeSegue", sender: self)
         }
         else
         {
@@ -80,15 +77,9 @@ class RearRevealTableViewController: UITableViewController {
             let action1 = UIAlertAction(title: "Yes", style: .Destructive)
             { _ in
                 let isDeleted = ModelManager.getInstance().deleteUser(Globals.currentUser)
-                if isDeleted {
-                    
-                    var timer2 = NSTimer()
-                    timer2.invalidate()
-                    
-                    self.cell.activitySpinner2.startAnimating()
-                    self.cell.activitySpinner2.hidden = false
-                    
-                    timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.delayedAction3), userInfo: nil, repeats: false)
+                if isDeleted
+                {
+                    self.performSegueWithIdentifier("deleteUserSegue", sender: self)
                 }
                 else
                 {
@@ -106,26 +97,6 @@ class RearRevealTableViewController: UITableViewController {
             
             self.presentViewController(alert, animated: true){}
         }
-    }
-    
-    func delayedAction2()
-    {
-        
-        print("Timer 3 Called")
-        cell.activitySpinner2.stopAnimating()
-        cell.activitySpinner2.hidden = true
-        self.performSegueWithIdentifier("logOutSegue", sender: self)
-        Util.invokeAlertMethod("", strBody: "Log Out Successful!", delegate: nil)
-    }
-    
-    func delayedAction3()
-    {
-        
-        print("Timer 4 Called")
-        cell.activitySpinner2.stopAnimating()
-        cell.activitySpinner2.hidden = true
-        self.performSegueWithIdentifier("logOutSegue", sender: self)
-        Util.invokeAlertMethod("", strBody: "User data deleted successfully.", delegate: nil)
     }
     
     /*
@@ -173,14 +144,25 @@ class RearRevealTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if(segue.identifier == "homeSegue")
+        {
+            Globals.logOutBool = true
+        }
+        else if(segue.identifier == "deleteUserSegue")
+        {
+            Globals.deleteUser = true
+        }
+
     }
-    */
+ 
 
 }
