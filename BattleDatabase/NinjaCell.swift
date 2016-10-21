@@ -23,19 +23,19 @@ class NinjaCell: UITableViewCell {
         btnEdit.layer.cornerRadius = 10
         btnDelete.layer.cornerRadius = 10
         
-        btnEdit.layer.shadowOffset = CGSizeMake(3,3)
+        btnEdit.layer.shadowOffset = CGSize(width: 3,height: 3)
         btnEdit.layer.shadowRadius = 1
         btnEdit.layer.shadowOpacity = 0.5
-        btnEdit.layer.shadowColor = UIColor.blackColor().CGColor
+        btnEdit.layer.shadowColor = UIColor.black.cgColor
         
-        btnDelete.layer.shadowOffset = CGSizeMake(3,3)
+        btnDelete.layer.shadowOffset = CGSize(width: 3,height: 3)
         btnDelete.layer.shadowRadius = 1
         btnDelete.layer.shadowOpacity = 0.5
-        btnDelete.layer.shadowColor = UIColor.blackColor().CGColor
+        btnDelete.layer.shadowColor = UIColor.black.cgColor
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

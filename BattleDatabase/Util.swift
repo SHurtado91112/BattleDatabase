@@ -23,35 +23,35 @@ struct Globals
 class Util: NSObject
 {
 
-    class func getPath(fileName: String) -> String
+    class func getPath(_ fileName: String) -> String
     {
         
-        let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-        let fileURL = documentsURL.URLByAppendingPathComponent(fileName)
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let fileURL = documentsURL.appendingPathComponent(fileName)
         
-        print("Your final DB path : \(fileURL.path!)")
+        print("Your final DB path : \(fileURL.path)")
         
-        return fileURL.path!
+        return fileURL.path
     }
     
-    class func copyFile(fileName: NSString)
+    class func copyFile(_ fileName: NSString)
     {
         let dbPath: String = getPath(fileName as String)
-        let fileManager = NSFileManager.defaultManager()
-        if !fileManager.fileExistsAtPath(dbPath) {
+        let fileManager = FileManager.default
+        if !fileManager.fileExists(atPath: dbPath) {
             
-            let documentsURL = NSBundle.mainBundle().resourceURL
-            let fromPath = documentsURL!.URLByAppendingPathComponent(fileName as String)
+            let documentsURL = Bundle.main.resourceURL
+            let fromPath = documentsURL!.appendingPathComponent(fileName as String)
             
             var error : NSError?
             do {
-                try fileManager.copyItemAtPath(fromPath.path!, toPath: dbPath)
+                try fileManager.copyItem(atPath: fromPath.path, toPath: dbPath)
             } catch let error1 as NSError {
                 error = error1
             }
             
-            let alert = UIAlertController(title: "", message: "", preferredStyle: .Alert)
-            let action1 = UIAlertAction(title: "Okay", style: .Default){ _ in}
+            let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Okay", style: .default){ _ in}
             
             alert.addAction(action1)
 
@@ -63,20 +63,20 @@ class Util: NSObject
                 alert.message = "Your database copied successfully"
             }
             
-            let rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController
-            rootVC?.presentViewController(alert, animated: true){}
+            let rootVC = UIApplication.shared.keyWindow?.rootViewController
+            rootVC?.present(alert, animated: true){}
         }
     }
     
-    class func invokeAlertMethod(strTitle: NSString, strBody: NSString, delegate: AnyObject?)
+    class func invokeAlertMethod(_ strTitle: NSString, strBody: NSString, delegate: AnyObject?)
     {
-        let alert = UIAlertController(title: strTitle as String, message: strBody as String, preferredStyle: .Alert)
-        let action1 = UIAlertAction(title: "Okay", style: .Default){ _ in}
+        let alert = UIAlertController(title: strTitle as String, message: strBody as String, preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Okay", style: .default){ _ in}
         
         alert.addAction(action1)
         
-        let rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController
-        rootVC?.presentViewController(alert, animated: true){}
+        let rootVC = UIApplication.shared.keyWindow?.rootViewController
+        rootVC?.present(alert, animated: true){}
     }
     
     /*

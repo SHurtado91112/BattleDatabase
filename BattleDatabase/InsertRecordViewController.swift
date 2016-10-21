@@ -40,7 +40,7 @@ class InsertRecordViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         btnSave.layer.cornerRadius = 10
-        btnSave.layer.shadowOffset = CGSizeMake(5,5)
+        btnSave.layer.shadowOffset = CGSize(width: 5,height: 5)
         btnSave.layer.shadowRadius = 1
         btnSave.layer.shadowOpacity = 0.5
     }
@@ -52,11 +52,11 @@ class InsertRecordViewController: UIViewController {
     }
 
     
-    @IBAction func btnBackClicked(sender: AnyObject)
+    @IBAction func btnBackClicked(_ sender: AnyObject)
     {
     }
     
-    @IBAction func btnSaveClicked(sender: AnyObject)
+    @IBAction func btnSaveClicked(_ sender: AnyObject)
     {
         if(txtName.text == "")
         {
@@ -86,10 +86,10 @@ class InsertRecordViewController: UIViewController {
                 ninjaInfo.Strength = txtStrength.text!
                 let isUpdated = ModelManager.getInstance().updateNinjaData(ninjaInfo)
                 if isUpdated {
-                    self.performSegueWithIdentifier("savedSegue", sender: self)
+                    self.performSegue(withIdentifier: "savedSegue", sender: self)
                     Util.invokeAlertMethod("", strBody: "Record updated successfully.", delegate: nil)
                 } else {
-                    self.performSegueWithIdentifier("savedSegue", sender: self)
+                    self.performSegue(withIdentifier: "savedSegue", sender: self)
                     Util.invokeAlertMethod("", strBody: "Error in updating record.", delegate: nil)
                 }
             }
@@ -104,10 +104,10 @@ class InsertRecordViewController: UIViewController {
                 ninjaInfo.PassWord = Globals.currentPass
                 let isInserted = ModelManager.getInstance().addNinjaData(ninjaInfo)
                 if isInserted {
-                    self.performSegueWithIdentifier("savedSegue", sender: self)
+                    self.performSegue(withIdentifier: "savedSegue", sender: self)
                     Util.invokeAlertMethod("", strBody: "Record inserted successfully.", delegate: nil)
                 } else {
-                    self.performSegueWithIdentifier("savedSegue", sender: self)
+                    self.performSegue(withIdentifier: "savedSegue", sender: self)
                     Util.invokeAlertMethod("", strBody: "Error in inserting record.", delegate: nil)
                 }
             }

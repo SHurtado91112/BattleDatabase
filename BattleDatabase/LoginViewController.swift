@@ -23,11 +23,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         btnSignIn.layer.cornerRadius = 10
-        btnSignIn.layer.shadowOffset = CGSizeMake(5,5)
+        btnSignIn.layer.shadowOffset = CGSize(width: 5,height: 5)
         btnSignIn.layer.shadowRadius = 1
         btnSignIn.layer.shadowOpacity = 0.5
         
-        activitySpinner.hidden = true
+        activitySpinner.isHidden = true
         // Do any additional setup after loading the view.
     }
 
@@ -37,11 +37,11 @@ class LoginViewController: UIViewController {
     }
    
 
-    @IBAction func signInAction(sender: AnyObject)
+    @IBAction func signInAction(_ sender: AnyObject)
     {
-        var timer = NSTimer()
+        var timer = Timer()
         
-        activitySpinner.hidden = false
+        activitySpinner.isHidden = false
         activitySpinner.startAnimating()
         
         let username = self.userNameTextField.text
@@ -57,27 +57,27 @@ class LoginViewController: UIViewController {
         {
             Util.invokeAlertMethod("", strBody: "Please enter a username.", delegate: nil)
             activitySpinner.stopAnimating()
-            activitySpinner.hidden = true
+            activitySpinner.isHidden = true
         }
         else if(!userCheck)
         {
             Util.invokeAlertMethod("", strBody: "Account does not exist.", delegate: nil)
             activitySpinner.stopAnimating()
-            activitySpinner.hidden = true
+            activitySpinner.isHidden = true
         }
         else if(passWordInfo)
         {
             Globals.currentUser = username!
             Globals.currentPass = password!
          
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(delayedAction), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(delayedAction), userInfo: nil, repeats: false)
 
         }
         else
         {
             Util.invokeAlertMethod("", strBody: "Login Failure.", delegate: nil)
             activitySpinner.stopAnimating()
-            activitySpinner.hidden = true
+            activitySpinner.isHidden = true
         }
         
     }
@@ -85,8 +85,8 @@ class LoginViewController: UIViewController {
     func delayedAction() {
         print("Timer Called")
         activitySpinner.stopAnimating()
-        activitySpinner.hidden = true
-        self.performSegueWithIdentifier("verifiedSegue", sender: self)
+        activitySpinner.isHidden = true
+        self.performSegue(withIdentifier: "verifiedSegue", sender: self)
         Util.invokeAlertMethod("", strBody: "Login Successful!", delegate: nil)
     }
 /*

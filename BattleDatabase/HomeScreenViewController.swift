@@ -28,7 +28,7 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         //self.userLabel.text! = Globals.currentUser
         self.imageView.image = UIImage(named: "Drawing (1)")
         
-        self.activitySpinner2.hidden = true
+        self.activitySpinner2.isHidden = true
         self.activitySpinner2.stopAnimating()
         if(revealViewController() != nil)
         {
@@ -39,28 +39,28 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         
         if(Globals.logOutBool == true)
         {
-            var timer2 = NSTimer()
+            var timer2 = Timer()
             timer2.invalidate()
             
-            self.activitySpinner2.hidden = false
+            self.activitySpinner2.isHidden = false
             self.activitySpinner2.startAnimating()
             
-            timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(delayedAction2), userInfo: nil, repeats: false)
+            timer2 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(delayedAction2), userInfo: nil, repeats: false)
             
         }
         else if(Globals.deleteUser == true)
         {
-            var timer2 = NSTimer()
+            var timer2 = Timer()
             timer2.invalidate()
             
-            self.activitySpinner2.hidden = false
+            self.activitySpinner2.isHidden = false
             self.activitySpinner2.startAnimating()
             
-            timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(delayedAction3), userInfo: nil, repeats: false)
+            timer2 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(delayedAction3), userInfo: nil, repeats: false)
         }
     }
     
-    override func viewWillAppear(animated: Bool)
+    override func viewWillAppear(_ animated: Bool)
     {
         self.getNinjaData()
     }
@@ -78,47 +78,47 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         tbNinjaData.reloadData()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return marrNinjaData.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell:NinjaCell = tableView.dequeueReusableCellWithIdentifier("cell") as! NinjaCell
-        let ninja:NinjaInfo = marrNinjaData.objectAtIndex(indexPath.row) as! NinjaInfo
+        let cell:NinjaCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! NinjaCell
+        let ninja:NinjaInfo = marrNinjaData.object(at: (indexPath as NSIndexPath).row) as! NinjaInfo
         
         if(ninja.UserName != Globals.currentUser)
         {
-            cell.btnDelete.backgroundColor = UIColor.blackColor()
-            cell.btnEdit.backgroundColor = UIColor.blackColor()
+            cell.btnDelete.backgroundColor = UIColor.black
+            cell.btnEdit.backgroundColor = UIColor.black
         }
         
         cell.lblContent.text = "Name: \(ninja.Name)"
-        cell.btnInfo.tag = indexPath.row
-        cell.btnDelete.tag = indexPath.row
-        cell.btnEdit.tag = indexPath.row
+        cell.btnInfo.tag = (indexPath as NSIndexPath).row
+        cell.btnDelete.tag = (indexPath as NSIndexPath).row
+        cell.btnEdit.tag = (indexPath as NSIndexPath).row
         return cell
     }
     
 
-    @IBAction func btnViewClicked(sender: AnyObject)
+    @IBAction func btnViewClicked(_ sender: AnyObject)
     {
-        self.performSegueWithIdentifier("infoSegue", sender: sender)
+        self.performSegue(withIdentifier: "infoSegue", sender: sender)
     }
     
-    @IBAction func btnDeleteClicked(sender: AnyObject)
+    @IBAction func btnDeleteClicked(_ sender: AnyObject)
     {
         let btnDelete : UIButton = sender as! UIButton
         let selectedIndex : Int = btnDelete.tag
-        let ninjaInfo: NinjaInfo = marrNinjaData.objectAtIndex(selectedIndex) as! NinjaInfo
+        let ninjaInfo: NinjaInfo = marrNinjaData.object(at: selectedIndex) as! NinjaInfo
         
         //checking for proper user
         if(ninjaInfo.UserName == Globals.currentUser)
         {
             //action sheet for deletion of record
-            let alert = UIAlertController(title: "Wait!", message: "Are you sure you want to delete this record?" as String, preferredStyle: .ActionSheet)
-            let action1 = UIAlertAction(title: "Yes", style: .Destructive)
+            let alert = UIAlertController(title: "Wait!", message: "Are you sure you want to delete this record?" as String, preferredStyle: .actionSheet)
+            let action1 = UIAlertAction(title: "Yes", style: .destructive)
             { _ in
                 let isDeleted = ModelManager.getInstance().deleteNinjaData(ninjaInfo)
                 if isDeleted {
@@ -129,7 +129,7 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
                 self.getNinjaData()
                 
             }
-            let action2 = UIAlertAction(title: "No", style: .Default)
+            let action2 = UIAlertAction(title: "No", style: .default)
             { _ in
                 Util.invokeAlertMethod("", strBody: "Record not deleted.", delegate: nil)
             }
@@ -137,7 +137,7 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
             alert.addAction(action1)
             alert.addAction(action2)
             
-            self.presentViewController(alert, animated: true){}
+            self.present(alert, animated: true){}
         }
         else
         {
@@ -146,15 +146,15 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         
     }
     
-    @IBAction func btnEditClicked(sender: AnyObject)
+    @IBAction func btnEditClicked(_ sender: AnyObject)
     {
         let btnEdit : UIButton = sender as! UIButton
         let selectedIndex : Int = btnEdit.tag
-        let ninjaInfo: NinjaInfo = marrNinjaData.objectAtIndex(selectedIndex) as! NinjaInfo
+        let ninjaInfo: NinjaInfo = marrNinjaData.object(at: selectedIndex) as! NinjaInfo
         
         if(ninjaInfo.UserName == Globals.currentUser)
         {
-            self.performSegueWithIdentifier("editSegue", sender: sender)
+            self.performSegue(withIdentifier: "editSegue", sender: sender)
         }
         else
         {
@@ -168,10 +168,10 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         print("Timer 3 Called")
     
         Globals.logOutBool = false
-        self.activitySpinner2.hidden = true
+        self.activitySpinner2.isHidden = true
         self.activitySpinner2.stopAnimating()
         
-        self.performSegueWithIdentifier("logOutSegue", sender: self)
+        self.performSegue(withIdentifier: "logOutSegue", sender: self)
         Util.invokeAlertMethod("", strBody: "Log Out Successful!", delegate: nil)
     }
     
@@ -180,32 +180,32 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         
         print("Timer 4 Called")
         Globals.deleteUser = false
-        self.activitySpinner2.hidden = true
+        self.activitySpinner2.isHidden = true
         self.activitySpinner2.stopAnimating()
         
-        self.performSegueWithIdentifier("logOutSegue", sender: self)
+        self.performSegue(withIdentifier: "logOutSegue", sender: self)
         Util.invokeAlertMethod("", strBody: "User data deleted successfully.", delegate: nil)
     }
 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if(segue.identifier == "editSegue")
         {
             let btnEdit : UIButton = sender as! UIButton
             let selectedIndex : Int = btnEdit.tag
-            let viewController : InsertRecordViewController = segue.destinationViewController as! InsertRecordViewController
+            let viewController : InsertRecordViewController = segue.destination as! InsertRecordViewController
             viewController.isEdit = true
-            viewController.ninjaData = marrNinjaData.objectAtIndex(selectedIndex) as! NinjaInfo
+            viewController.ninjaData = marrNinjaData.object(at: selectedIndex) as! NinjaInfo
         }
         else if(segue.identifier == "infoSegue")
         {
             let btnInfo : UIButton = sender as! UIButton
             let selectedIndex : Int = btnInfo.tag
-            let viewController : InfoViewController = segue.destinationViewController as! InfoViewController
-            viewController.ninjaData = marrNinjaData.objectAtIndex(selectedIndex) as! NinjaInfo
+            let viewController : InfoViewController = segue.destination as! InfoViewController
+            viewController.ninjaData = marrNinjaData.object(at: selectedIndex) as! NinjaInfo
         }
 
     }

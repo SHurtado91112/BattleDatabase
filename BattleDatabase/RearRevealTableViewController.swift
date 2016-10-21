@@ -33,53 +33,53 @@ class RearRevealTableViewController: UITableViewController
         // Dispose of any resources that can be recreated.
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return self.cellsArray.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         //setting up each cell
-        cell = self.tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! RevealTableViewCell
+        cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RevealTableViewCell
         
         var cellName : Globals
-        cellName = cellsArray[indexPath.row]
+        cellName = cellsArray[(indexPath as NSIndexPath).row]
         
         var image : UIImage
-        image = self.imageArray[indexPath.row]
+        image = self.imageArray[(indexPath as NSIndexPath).row]
         
         cell.cLbl.text = cellName.cellLabel
-        cell.cBtn.setImage(image, forState: UIControlState.Normal)
+        cell.cBtn.setImage(image, for: UIControlState())
         cell.cBtn.tintColor = UIColor.init(red: CGFloat(250/255.0), green: CGFloat(70/255.0), blue: CGFloat(22/255.0), alpha: 1)
         return cell
     
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         //conditional for cell selection
-        if(indexPath.row == 0)
+        if((indexPath as NSIndexPath).row == 0)
         {
             print("User clicked")
         }
-        else if(indexPath.row == 1)
+        else if((indexPath as NSIndexPath).row == 1)
         {
-            self.performSegueWithIdentifier("aboutSegue", sender: self)
+            self.performSegue(withIdentifier: "aboutSegue", sender: self)
         }
-        else if(indexPath.row == 2)
+        else if((indexPath as NSIndexPath).row == 2)
         {
-            self.performSegueWithIdentifier("homeSegue", sender: self)
+            self.performSegue(withIdentifier: "homeSegue", sender: self)
         }
         else
         {
-            let alert = UIAlertController(title: "Wait!", message: "Are you sure you want to delete this account and all of its records?" as String, preferredStyle: .ActionSheet)
-            let action1 = UIAlertAction(title: "Yes", style: .Destructive)
+            let alert = UIAlertController(title: "Wait!", message: "Are you sure you want to delete this account and all of its records?" as String, preferredStyle: .actionSheet)
+            let action1 = UIAlertAction(title: "Yes", style: .destructive)
             { _ in
                 let isDeleted = ModelManager.getInstance().deleteUser(Globals.currentUser)
                 if isDeleted
                 {
-                    self.performSegueWithIdentifier("deleteUserSegue", sender: self)
+                    self.performSegue(withIdentifier: "deleteUserSegue", sender: self)
                 }
                 else
                 {
@@ -87,7 +87,7 @@ class RearRevealTableViewController: UITableViewController
                 }
 
             }
-            let action2 = UIAlertAction(title: "No", style: .Default)
+            let action2 = UIAlertAction(title: "No", style: .default)
             { _ in
                 Util.invokeAlertMethod("", strBody: "User data not deleted.", delegate: nil)
             }
@@ -95,7 +95,7 @@ class RearRevealTableViewController: UITableViewController
             alert.addAction(action1)
             alert.addAction(action2)
             
-            self.presentViewController(alert, animated: true){}
+            self.present(alert, animated: true){}
         }
     }
     
@@ -148,7 +148,7 @@ class RearRevealTableViewController: UITableViewController
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

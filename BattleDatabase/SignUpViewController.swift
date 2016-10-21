@@ -23,7 +23,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         btnRegister.layer.cornerRadius = 10
-        btnRegister.layer.shadowOffset = CGSizeMake(5,5)
+        btnRegister.layer.shadowOffset = CGSize(width: 5,height: 5)
         btnRegister.layer.shadowRadius = 1
         btnRegister.layer.shadowOpacity = 0.5
         // Do any additional setup after loading the view.
@@ -34,11 +34,11 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func signUpBtn(sender: AnyObject) {
+    @IBAction func signUpBtn(_ sender: AnyObject) {
         
-        var timer = NSTimer()
+        var timer = Timer()
         
-        activitySpinner.hidden = false
+        activitySpinner.isHidden = false
         activitySpinner.startAnimating()
         
         timer.invalidate()
@@ -66,7 +66,7 @@ class SignUpViewController: UIViewController {
                 ninjaInfo.PassWord = passWordTextField.text!
                 let canCreate = ModelManager.getInstance().addNinjaData(ninjaInfo)
                 if canCreate {
-                    timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(delayedAction), userInfo: nil, repeats: false)
+                    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(delayedAction), userInfo: nil, repeats: false)
                 } else {
                     Util.invokeAlertMethod("", strBody: "Error: Failed to Create User.", delegate: nil)
                 }
@@ -86,8 +86,8 @@ class SignUpViewController: UIViewController {
     func delayedAction() {
         print("Timer 0 Called")
         activitySpinner.stopAnimating()
-        activitySpinner.hidden = true
-        self.performSegueWithIdentifier("registeredSegue", sender: self)
+        activitySpinner.isHidden = true
+        self.performSegue(withIdentifier: "registeredSegue", sender: self)
         Util.invokeAlertMethod("", strBody: "User Created.", delegate: nil)
 
     }

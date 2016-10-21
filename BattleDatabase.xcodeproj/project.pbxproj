@@ -287,6 +287,7 @@
 				TargetAttributes = {
 					28D7DC851D0334F9007C50C6 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -468,6 +469,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stevshidae.BattleDatabase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "./BattleDatabase/BattleDatabase-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -480,6 +482,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stevshidae.BattleDatabase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "./BattleDatabase/BattleDatabase-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
